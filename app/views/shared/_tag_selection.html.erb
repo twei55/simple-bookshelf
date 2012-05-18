@@ -1,0 +1,3 @@
+<% cache(:action_suffix => 'tag_selection') do %>
+<%= tree_select(NestedTag.root, "book", "nested_tag_ids", -1, "0", {:multiple => true, :filter_unused => false})%>
+<% end %>

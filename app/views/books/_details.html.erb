@@ -1,0 +1,34 @@
+<div class="section">
+	<h5><%= book.title %>
+		<% if admin_signed_in? -%>
+			&#160;<%= link_to image_tag("icons/page_white_edit.png"),edit_book_path(book), :title => "Buch bearbeiten"%>
+		<% end -%>
+	</h5>
+	<div class="author">von <%= display_linked_authors(book.authors)%></div>
+</div>
+<div class="section"><%= book.abstract %></div>
+<div class="section border info">
+	<h5 style="margin-bottom:10px">Information:</h5>
+	<div>Herausgeber: <%= book.publisher %></div>
+	<div>Erscheinungsjahr: <%= book.year %></div>
+	<div>Publikationsart(en): <%= display_formats(book) %></div>
+</div>
+<div class="section border">
+	<div class="keywords">
+		<h5 style="margin-bottom:10px">Schlagworte:</h5>
+		<%= display_nested_tags(book.nested_tags) %>
+	</div>
+</div>
+<div class="section border">
+	<div class="location">
+		<h5 style="margin-bottom:10px">Aktueller Standort:</h5>
+		<%= book.location.blank? ? "Keine Angabe" : book.location %></div>
+</div>
+<% if book.document.file? %>
+<div class="section border">
+	<div class="file">
+	<h5 style="margin-bottom:10px">Dateianhang</h5>
+	<div style="float:left;margin-right:10px"><%= link_to image_tag("icons/file_pdf.png"),book.document.url, :title => "Anhang herunterladen"%></div>
+	<div><%= link_to book.document.original_filename,book.document.url,:title => "Anhang herunterladen" %></div>
+</div>
+<% end %>

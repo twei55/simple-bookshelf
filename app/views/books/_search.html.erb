@@ -1,0 +1,45 @@
+<div class="grid_16 alpha">
+<%= form_tag(books_path, {:class => "form", :method => :get}) do %>
+	<div id="search">
+		<div id="free_query"><%= text_field_tag "query",params[:query] || "" %><%= submit_tag "Suche", :class => "btn btn-primary" %></div>
+		<div class="row filters">
+			<div class="span4">
+				<label for="query">Suchen nach:</label>
+				<%= check_box_tag "choices[title]", "1", 
+					params["choices"] && params["choices"]["title"].present? || params["query"].blank? %>
+					&#160;Titelstichwort
+				<%= check_box_tag "choices[author]", "1", 
+					params["choices"] && params["choices"]["author"].present? || params["query"].blank? %>
+					&#160;Autor
+				<%= check_box_tag "choices[publisher]", "1", 
+					params["choices"] && params["choices"]["publisher"].present? || params["query"].blank?
+					%>&#160;Herausgeber
+			</div>
+			<div class="span4">
+				<label for="book_format">Ergebnis nach Art der Publikation filtern:</label>
+				<%= select("book","format",Format.all(:order => "name ASC").collect{|option|[option.name,option.id]},{:selected => params[:book] && params[:book][:format] ? params[:book][:format] : 0, :include_blank => "-- Bitte auswählen --"})%>
+			</div>
+			<div class="span3">
+				<%= partial "tag_in_use_selection"%>
+				<%# Set selected tag on client because partial is cached %>
+				<script type="text/javascript" charset="utf-8">
+					document.observe('dom:loaded',function(event) {
+						console.log("Loaded");
+						$('book_tag').childElements().each(function(o) {
+						  if (parseInt(o.value) == parseInt(window.location.href.parseQuery()["book[tag]"])) {
+								o.selected = "selected";
+							}
+						});
+						$('book_format').childElements().each(function(o) {
+						  if (parseInt(o.value) == parseInt(window.location.href.parseQuery()["book[format]"])) {
+								o.selected = "selected";
+							}
+						});
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+<% end -%>
+</div>
+<div class="clear"></div>

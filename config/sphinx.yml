@@ -1,0 +1,10 @@
+# Sphinx Configuration file
+development:
+  port: 9312
+  charset_type: utf-8
+  charset_table: 0..9, A..Z->a..z, _, a..z, U+410..U+42F->U+430..U+44F, U+430..U+44F, U+DC->U+FC, U+C4->U+E4, U+D6->U+F6, U+DF, U+E4, U+F6, U+FC
+
+test:
+  port: 9313
+  charset_type: utf-8
+  charset_table: 0..9, A..Z->a..z, _, a..z, U+410..U+42F->U+430..U+44F, U+430..U+44F, U+DC->U+FC, U+C4->U+E4, U+D6->U+F6, U+DF, U+E4, U+F6, U+FC

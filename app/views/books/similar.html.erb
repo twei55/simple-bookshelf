@@ -1,0 +1,8 @@
+<% if @books && @books.any? -%>
+<span class="header">Hinweis: Folgende Einträge mit ähnlichem Titel existieren bereits:</span>
+<ul>
+	<% for book in @books -%>
+	<li><%= link_to book.title,book_path(book) %></li>
+	<% end -%>
+</ul>
+<% end -%>

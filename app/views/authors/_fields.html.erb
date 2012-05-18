@@ -1,0 +1,10 @@
+<div class="author grid_10 alpha">
+	<div class="grid_4 alpha"><%= f.text_field :first_name, {:label => "Vorname"}%></div>
+	<div class="grid_4"><%= f.text_field :last_name, {:label => "Nachname"}%></div>
+	<div class="grid_2 omega">
+	<% if (params[:action].eql?("edit") || params[:action].eql?("update")) && !author.id.nil? && i > 1%>
+		<br /><%= link_to image_tag("icons/bin_empty.png"), book_author_path(book,author), :method => :delete, :title => "Autor löschen" %>
+	<% end -%>
+	</div>
+</div>
+<div class="clear"></div>

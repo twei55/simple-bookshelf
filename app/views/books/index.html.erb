@@ -1,0 +1,7 @@
+<h2>Ergebnisliste
+	<span class="total_entries">(<%= @books.total_entries.to_s%> Titel gefunden)</span>
+</h2>
+<%= partial "search", :current_tag_id => @current_tag_id %>
+<%= partial "list", :books => @books %>
+<%= will_paginate @books%>
+<%= @params %>

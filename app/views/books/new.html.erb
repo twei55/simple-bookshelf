@@ -1,0 +1,13 @@
+<% content_for(:head) do -%>
+	<%= javascript_include_tag "simple-bookshelf/BookForm"%>
+<% end -%>
+<h2>Neuen Titel anlegen</h2>
+<%= simple_form_for(@book, 
+	:html => {:id => 'new_book_form', :class => 'form_vertical', :multipart => true}) do |f| %>
+	<%= partial "form", :book => @book, :f => f %>
+	<%= f.submit 'Titel speichern', :class => "btn btn-primary" %>
+<% end -%>
+<script type="text/javascript">
+	bf = new BookForm();
+	bf.observeTitleField();
+</script>

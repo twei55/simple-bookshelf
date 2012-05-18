@@ -1,0 +1,152 @@
+body {
+	background-color:#EEE;
+}
+
+body a {
+	color:#333;
+}
+
+div#content {
+	background-color:#FFF;
+	padding:20px 20px 250px;
+}
+
+div#header {
+	background:url(/images/bgs/header_bg.png) repeat-x;
+	height:120px;
+	color:#0A3B8B;
+	padding:0 20px;
+	border-bottom:1px solid #AAA;
+}
+
+div#header div#logo {
+	padding:20px 0 0;
+}
+
+/* Navigation */
+
+div#nav {
+	float: right;
+	margin-top: 75px;
+}
+
+div#nav ul.nav {
+	margin: 0;
+	text-align: right;
+}
+
+div#nav ul.nav li {
+	display: inline;
+}
+
+div#nav ul.nav li a:hover {
+	background-color: #FFF;
+}
+
+p.alert, p.notice {
+	margin:0;
+	border:0;
+	padding:0;
+}
+
+span.total_entries {
+	padding-left:10px;
+	font-size:0.7em;
+}
+
+div.section {
+	margin-bottom:20px;
+}
+
+div.section.info div {
+	margin-top:8px;
+}
+
+div.section.border {
+	border-top:1px solid #CCC;
+	padding-top:10px;
+}
+
+/* Search form */
+
+div#search {
+	margin-bottom:10px;
+	padding-bottom:10px;
+	border-bottom:1px solid #AAA;
+}
+
+div#search input[type=text] {
+	margin-right:5px;
+	margin-bottom:0;
+}
+
+div#search input[type=checkbox] {
+	margin:0 1px 0 4px;
+}
+
+div#search div.filters {
+	margin-top:8px;
+}
+
+/* Books table */
+
+table.table .btn {
+	width:25px;
+	height:25px;
+	padding:22px 0 0 2px;
+	margin:0 5px;
+}
+table.table .btn.delete-book {
+	background:url(/images/icons/bin_empty.png) no-repeat 2px 3px;
+}
+table.table .btn.edit-book {
+	background:url(/images/icons/page_white_edit.png) no-repeat 3px 3px;
+}
+table.table td.buttons {
+ width:80px;
+}
+table.table td.buttons form {
+ float:left;
+}
+
+/* Tag list */
+
+ul.tags {
+	margin:0;
+}
+
+ul.tags li {
+	margin:0;
+	padding:0;
+	list-style:none;
+	display:inline;
+}
+
+/* Similar book list */
+
+div#similar_books span.header {
+	font-weight:bold;
+	border-bottom:1px solid #666;
+	font-size:1.1em;
+	color:#333;
+}
+div#similar_books {
+	background-color:#FFFFEE;
+	border:1px solid #FFCC00;
+	margin-bottom:10px;
+	padding:10px 10px 0;
+}
+div#similar_books ul {
+	margin-top:10px;
+	height:120px;
+	overflow:auto;
+}
+div#similar_books ul li {
+	list-style:square outside none;
+	margin:0 15px;
+	padding:0 0 3px;
+}
+
+div#similar_books ul li a {
+	color:#333;
+}

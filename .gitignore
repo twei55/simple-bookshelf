@@ -1,0 +1,11 @@
+.DS_Store
+.bundle
+config/*.sphinx.conf
+config/database.yml
+config/deploy.rb
+db/sphinx/*
+db/dumps/*
+db/*.sqlite3
+log/*
+tmp/
+Capfile

@@ -1,0 +1,52 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th class="number">Nr.</th>
+			<th class="author">
+				<%= link_to "Autor", books_path + "?sort=author_last_name" + add_post_params(params), :title => "Nach Autor sortieren"%><%= add_order_arrow("author_last_name",params)%>
+			</th>
+			<th class="title">
+				<%= link_to "Titel", books_path + "?sort=title" + add_post_params(params), :title => "Nach Titel sortieren"%><%= add_order_arrow("title",params)%>
+			</th>
+			<th class="year">
+				<%= link_to "Jahr", books_path + "?sort=year" + add_post_params(params), :title => "Nach Erscheinungsjahr sortieren"%><%= add_order_arrow("year",params)%>
+			</th>
+			<th class="publisher">
+				<%= link_to "Herausgeber", books_path + "?sort=publisher" + add_post_params(params), :title => "Nach Herausgeber sortieren"%><%= add_order_arrow("publisher",params)%>
+			</th>
+			<th class="actions"></th>
+		</tr>
+	</thead>
+	<tbody>
+	<% if books.any? -%>
+	<% books.each_with_index do |book,i| -%>
+	<tr <%= (i.odd?) ? "class='odd'" : ""%>>
+		<td><%= display_number(i) %></td>
+		<td><%= display_linked_authors(book.authors) %></td>
+		<td><%= link_to book.title, book_path(book), :title => "Details anzeigen" %>&#160;<%= image_tag("icons/file_pdf_small.png", :title => "Anhang") if book.document.file? %></td>
+		<td><%= book.year %></td>
+		<td><%= book.publisher %></td>
+		<td class="buttons">
+			<% if admin_signed_in? -%>
+				<%= button_to "Bearbeiten",
+					edit_book_path(book), 
+					:title => "Buch bearbeiten",
+					:class => "btn edit-book",
+					:method => :get %>
+				<%= button_to "Löschen",
+					book_path(book), 
+					:method => :delete,
+					:title => "Buch löschen",
+					:class => "btn delete-book",
+					:confirm => "Willst Du diesen Titel wirklich löschen?"%>
+			<% end %>
+		</td>
+	</tr>
+	<% end -%>
+	<% else -%>
+		<tr>
+			<td colspan="6">Keine Treffer.</td>
+		</tr>
+	<% end -%>
+	</tbody>
+</table>

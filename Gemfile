@@ -8,6 +8,8 @@ gem "devise"
 gem "mysql2", "~> 0.3"
 gem "paperclip", "~> 3.0"
 gem "rails", "3.2.2"
+# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
+gem "ruby-debug19", :require => "ruby-debug"
 gem 'rvm-capistrano'
 gem "simple_form"
 
@@ -27,9 +29,6 @@ end
 # end
 
 group :development, :test do
-	# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-	gem "ruby-debug19", :require => "ruby-debug"
-
 	gem "rspec-rails", "~> 2.8"
 	gem "factory_girl_rails", "~> 1.2"
 	gem "database_cleaner", "~> 0.7.2"

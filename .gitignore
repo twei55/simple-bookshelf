@@ -7,5 +7,6 @@ db/sphinx/*
 db/dumps/*
 db/*.sqlite3
 log/*
+public/images/templates/*
 tmp/
 Capfile

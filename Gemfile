@@ -8,6 +8,7 @@ gem "devise"
 gem "mysql2", "~> 0.3"
 gem "paperclip", "~> 3.0"
 gem "rails", "3.2.2"
+gem 'rvm-capistrano'
 gem "simple_form"
 
 gem "thin", "~> 1.3.1"

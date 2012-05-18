@@ -23,12 +23,16 @@ Simple Bookshelf is a Rails3 application that was built to organize all kind of 
 * [Thinking Sphinx](https://github.com/freelancing-god/thinking-sphinx)
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
 
-## Was tested with precision and the help of ...
+## Was tested with care and the help of ...
 
 * Rspec2
 * FactoryGirl
 * Capybara
 * DatabaseCleaner
+
+## License
+
+Simple Bookshelf is released under the [MIT license](www.opensource.org/licenses/MIT)
 
 ## TODO
 

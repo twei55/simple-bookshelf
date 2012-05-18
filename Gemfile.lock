@@ -59,6 +59,7 @@ GEM
     cocaine (0.2.1)
     columnize (0.3.6)
     commonjs (0.2.6)
+    daemon_controller (1.0.0)
     daemons (1.1.8)
     database_cleaner (0.7.2)
     devise (2.0.4)
@@ -75,6 +76,7 @@ GEM
     factory_girl_rails (1.7.0)
       factory_girl (~> 2.6.0)
       railties (>= 3.0.0)
+    fastthread (1.0.7)
     ffi (1.0.11)
     highline (1.6.11)
     hike (1.2.1)
@@ -115,6 +117,11 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (>= 0.0.2)
       mime-types
+    passenger (3.0.12)
+      daemon_controller (>= 0.2.5)
+      fastthread (>= 1.0.1)
+      rack
+      rake (>= 0.8.1)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -223,6 +230,7 @@ DEPENDENCIES
   launchy
   mysql2 (~> 0.3)
   paperclip (~> 3.0)
+  passenger
   rails (= 3.2.2)
   rspec-rails (~> 2.8)
   ruby-debug19

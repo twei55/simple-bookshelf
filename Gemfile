@@ -37,3 +37,7 @@ group :development, :test do
 	gem "launchy"
 	gem "differ"
 end
+
+group :production do
+	gem 'passenger'
+end

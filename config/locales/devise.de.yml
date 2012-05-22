@@ -7,13 +7,16 @@ de:
 
   devise:
     password: "Passwort"
+    password_confirmation: "Passwort wiederholen"
     forgot_password: "Passwort vergessen?"
     email: "E-Mail"
     remember_me: "Angemeldet bleiben"
     buttons:
       sign_in: "Einloggen"
+      sign_up: "Registrieren"
     headers:    
       sign_in: "Einloggen"
+      sign_up: "Registrierung"
     links:
       sign_in: "Einloggen"
       sign_up: "Registrieren"

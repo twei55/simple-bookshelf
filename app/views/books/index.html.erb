@@ -3,5 +3,9 @@
 </h2>
 <%= partial "search", :current_tag_id => @current_tag_id %>
 <%= partial "list", :books => @books %>
-<%= will_paginate @books%>
+<%= will_paginate @books, 
+	:previous_label => I18n.t("will_paginate.previous_label"), 
+	:next_label => I18n.t("will_paginate.next_label"),
+	:class => "pagination pagination-centered"
+%>
 <%= @params %>

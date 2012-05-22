@@ -30,6 +30,12 @@ Simple Bookshelf is a Rails3 application that was built to organize all kind of 
 * Capybara
 * DatabaseCleaner
 
+## Installation
+
+* Clone repository
+* Install RVM
+* Install Sphinx
+
 ## License
 
 Simple Bookshelf is released under the [MIT license](www.opensource.org/licenses/MIT)

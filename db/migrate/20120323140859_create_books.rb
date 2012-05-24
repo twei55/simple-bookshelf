@@ -13,6 +13,6 @@ class CreateBooks < ActiveRecord::Migration
   end
 
   def down
-
+    drop_table :books
   end
 end

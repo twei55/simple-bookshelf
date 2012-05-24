@@ -1,7 +1,9 @@
-<%= f.input :title, :label => "Titel" %>
+<%= f.input :title, :label => "Titel", 
+	:input_html => {:class => "span5"} %>
 <div id="similar_books" style="display:none"></div>
 <%= f.input :year, :label => "Erscheinungsjahr", :input_html => { :style => "width:50px", :maxlength => "4" }%>
-<%= f.input :publisher, :label => "Herausgebende Institution / Verlag" %>
+<%= f.input :publisher, :label => "Herausgebende Institution / Verlag", 
+	:input_html => {:class => "span5"} %>
 
 <!-- Formats -->
 <label for="formats">Publikationsart(en) auswählen</label>
@@ -41,7 +43,7 @@
 <div class="section border">
 	<h2>Autoren</h2>
 	<div class="row">
-		<div class="span0"><%= f.check_box "publisher_is_author" %></div>
+		<div class="span0"><%= f.check_box "publisher_is_author", {}, @book.publisher_is_author %></div>
 		<div class="span5"><%= f.label :publisher_is_author, "Autor entspricht Herausgeber / Verlag" %></div>
 	</div>
 	<div id="authors">
@@ -68,7 +70,8 @@
 		<div style="float:left;margin-right:10px"><%= image_tag("icons/file_pdf.png") %></div>
 		<div>
 			<%= book.document.original_filename %>&#160;
-			<% if current_user.has_role?(:admin) -%><%= link_to image_tag("icons/bin_empty.png"),destroy_document_book_path(book), :method => :delete, :title => "Anhang löschen", :confirm => "Willst Du diesen Anhang wirklich löschen?"%><% end %>
+			<% if admin_signed_in? -%>
+				<%= link_to image_tag("icons/bin_empty.png"),destroy_document_book_path(book), :method => :delete, :title => "Anhang löschen", :confirm => "Willst Du diesen Anhang wirklich löschen?"%><% end %>
 		</div>
 	<% else %>
 		<h4>Datei anhängen</h4>

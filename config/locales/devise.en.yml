@@ -23,6 +23,7 @@ en:
     links:
       sign_in: "Sign in"
       sign_up: "Sign up"
+      login_as_admin: "Administration"
     failure:
       already_authenticated: 'You are already signed in.'
       unauthenticated: 'You need to sign in or sign up before continuing.'

@@ -20,6 +20,7 @@ de:
     links:
       sign_in: "Einloggen"
       sign_up: "Registrieren"
+      login_as_admin: "Administration"
     failure:
       unauthenticated: 'Sie müssen sich anmelden oder registrieren, bevor Sie weiterfahren können.'
       unconfirmed: 'Sie müssen Ihren Account bestätigen, bevor Sie weiterfahren können.'

@@ -1,16 +1,20 @@
 <% content_for(:head) do -%>
 	<%= javascript_include_tag "simple-bookshelf/BookForm"%>
 <% end -%>
-<h2 style="margin-bottom:0">Titel "<%= @book.title %>" bearbeiten</h2>
+<h2 style="margin-bottom:0">Titel bearbeiten</h2>
 <% @book.errors.each do |error|%>
  <%= error%>
 <% end %>
-<div style="margin-bottom:25px">Letzte Änderung: <%= @book.updated_at.strftime("%d.%m.%Y, %H:%M:%S") %></div>
+<div style="margin-bottom:25px">
+	<% if @book.updated_at %>
+	Letzte Änderung: <%= @book.updated_at.strftime("%d.%m.%Y, %H:%M:%S") %>
+	<% end %>
+</div>
 <%= simple_form_for(@book, 
 		:url => book_path(@book), :method => :put,
 		:html => {:class => 'form_vertical', :id => 'edit_book_form', :multipart => true}) do |f| %>
 	<%= partial "form", :book => @book, :f => f %>
-	<%= f.submit 'Titel speichern', :class => "btn btn-primary" %>
+	<%= f.submit 'Titel aktualisieren', :class => "btn btn-primary" %>
 <% end %>
 <script type="text/javascript">
 	new BookForm();

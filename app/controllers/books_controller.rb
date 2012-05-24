@@ -1,3 +1,5 @@
+# encoding : utf-8
+
 class BooksController < ApplicationController
 
 	before_filter :authenticate_user_or_admin, :only => [:index, :show]
@@ -25,7 +27,11 @@ class BooksController < ApplicationController
 		end
     
     if params[:book][:nested_tag_ids]
-    	@book.nested_tag_ids << params[:book][:nested_tag_ids] unless params[:book][:nested_tag_ids] == "0"
+    	begin
+    		@book.nested_tags << NestedTag.find(params[:book][:nested_tag_ids])
+    	rescue ActiveRecord::RecordNotFound
+    		puts "Ignored tag that can´t be found"
+    	end
     end
 
     if (@book.save)
@@ -41,6 +47,32 @@ class BooksController < ApplicationController
 	end
 
 	def update
+		@book = Book.find(params[:id])
+		
+		unless (@book.nil?)
+      @book.update_attributes(params[:book])
+		end
+
+    if params[:book][:format_ids]
+    	@book.formats.clear
+    	@book.formats << Format.find(params[:book][:format_ids])
+    end
+    
+    if params[:book][:nested_tag_ids]
+    	@book.nested_tags.clear
+    	begin
+    		@book.nested_tags << NestedTag.find(params[:book][:nested_tag_ids])
+    	rescue ActiveRecord::RecordNotFound
+    		puts "Ignored tag that can´t be found"
+    	end
+    end
+
+    if (@book.save)
+      redirect_to books_path
+    else
+      render :action => "edit"
+    end
+
 	end
 
 	def destroy

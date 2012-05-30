@@ -1,5 +1,6 @@
 .DS_Store
 .bundle
+app/views/layouts/custom/*
 config/*.sphinx.conf
 config/database.yml
 config/deploy.rb

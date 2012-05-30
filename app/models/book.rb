@@ -45,7 +45,9 @@ class Book < ActiveRecord::Base
   # Paperclip
   ##############
 
-  has_attached_file :document
+  has_attached_file :document, 
+    :url => "/system/books/documents/:id/:basename_:style.:extension",
+    :path => ":rails_root/public/system/books/documents/:id/:basename_:style.:extension"
 
   ##############
   # Thinking Sphinx

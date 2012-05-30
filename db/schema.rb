@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20120516165837) do
 
   create_table "authors", :force => true do |t|
     t.string   "first_name"
-    t.string   "last_name"
+    t.string   "last_name",          :null => false
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "full_name"
@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(:version => 20120516165837) do
   end
 
   create_table "books", :force => true do |t|
-    t.string   "title"
-    t.string   "year"
-    t.string   "publisher"
+    t.string   "title",                                   :null => false
+    t.string   "year",                                    :null => false
+    t.string   "publisher",                               :null => false
     t.text     "abstract"
     t.text     "location"
     t.boolean  "publisher_is_author"
@@ -84,13 +84,13 @@ ActiveRecord::Schema.define(:version => 20120516165837) do
   add_index "books_nested_tags", ["nested_tag_id"], :name => "index_books_nested_tags_on_nested_tag_id"
 
   create_table "formats", :force => true do |t|
-    t.string   "name"
+    t.string   "name",       :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "nested_tags", :force => true do |t|
-    t.string   "name"
+    t.string   "name",       :null => false
     t.integer  "parent_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

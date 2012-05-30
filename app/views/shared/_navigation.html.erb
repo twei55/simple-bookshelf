@@ -1,4 +1,4 @@
-<ul class="nav nav-pills">
+<ul class="nav nav-pills pull-right">
 <% if user_signed_in? or admin_signed_in? %>
 	<li class="<%= 'active' if current_page?(books_path) || current_page?(root_path) %>">
 		<%= link_to "Suche", books_path %>
@@ -22,11 +22,11 @@
 		<% end %>
 	</li>
 <% else %>
-  <li class="<%= 'active' if current_page?(new_user_session_path) || current_page?(new_admin_session_path) %>">
+  <li class="<%= 'active' if current_page?(new_user_session_path) %>">
   	<%= link_to "Einloggen", new_user_session_path, {:title => "Einloggen"} %>
   </li>
-	<li class="<%= 'active' if current_page?(new_user_registration_path) %>">
-		<%= link_to "Registrieren", new_user_registration_path, {:title => "Registrieren" } %>
-	</li>
+	<li class="<%= 'active' if current_page?(new_admin_session_path) %>">
+  	<%= link_to "Administration", new_admin_session_path, {:title => "Administration"} %>
+  </li>
 <% end -%>
 </ul>

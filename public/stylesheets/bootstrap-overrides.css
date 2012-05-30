@@ -6,6 +6,10 @@ body a {
 	color:#333;
 }
 
+body h2 {
+	margin-bottom:10px;
+}
+
 div#content {
 	background-color:#FFF;
 	padding:20px 20px 250px;
@@ -37,10 +41,6 @@ div#nav ul.nav {
 
 div#nav ul.nav li {
 	display: inline;
-}
-
-div#nav ul.nav li a:hover {
-	background-color: #FFF;
 }
 
 p.alert, p.notice {

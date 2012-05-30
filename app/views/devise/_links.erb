@@ -1,5 +1,9 @@
-<% unless current_page?(new_admin_session_path) %>
-	<%= link_to I18n.t("devise.links.login_as_admin"), new_admin_session_path %><br />
+<% if current_page?(new_user_session_path) %>
+	<%= link_to I18n.t("devise.links.sign_up"), new_user_registration_path %><br />
+<% end %>
+
+<% if current_page?(new_admin_session_path) %>
+	<%= link_to I18n.t("devise.links.sign_up"), new_admin_registration_path %><br />
 <% end %>
 
 <%- if controller_name != 'sessions' %>

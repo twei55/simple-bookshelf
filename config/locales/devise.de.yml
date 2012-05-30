@@ -17,6 +17,8 @@ de:
     headers:    
       sign_in: "Einloggen"
       sign_up: "Registrierung"
+      admin_sign_in: "Administration: Einloggen"
+      admin_sign_up: "Administration: Registrierung"
     links:
       sign_in: "Einloggen"
       sign_up: "Registrieren"

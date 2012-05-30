@@ -13,13 +13,18 @@ en:
 
   devise:
     password: "Password"
+    password_confirmation: "Confirm password"
     forgot_password: "Forgot your password?"
     email: "E-mail"
     remember_me: "Remember me"
     buttons:
       sign_in: "Sign in"
+      sign_up: "Register"
     headers:    
       sign_in: "Sign in"
+      sign_up: "Registration"
+      admin_sign_in: "Administration - Sign in"
+      admin_sign_up: "Administration - Registration"
     links:
       sign_in: "Sign in"
       sign_up: "Sign up"

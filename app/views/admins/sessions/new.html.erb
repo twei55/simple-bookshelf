@@ -1,0 +1,19 @@
+<h2><%= I18n.t("devise.headers.admin_sign_in") %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name, :class => "well")) do |f| %>
+  <%= f.label I18n.t("devise.email") %>
+  <%= f.email_field :email %>
+
+  <%= f.label I18n.t("devise.password") %>
+  <%= f.password_field :password %>
+
+  <% if devise_mapping.rememberable? -%>
+    <label class="checkbox">
+    	<%= f.check_box :remember_me %> <%= I18n.t("devise.remember_me") %>
+    </label>
+  <% end -%>
+
+  <%= f.submit I18n.t("devise.buttons.sign_in"), :class => "btn" %>
+<% end %>
+
+<%= render "links" %>

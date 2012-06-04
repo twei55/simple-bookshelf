@@ -22,7 +22,7 @@
 <!-- Tags -->
 <div style="clear:left">
 <label for="book_nested_tag_ids">Schlagwort auswählen</label>
-	<%= partial "shared/tag_selection"%>
+	<%= partial "shared/tag_selection" %>
 	<%# Set selected tag on client because partial is cached %>
 	<%= hidden_field_tag "tag_id",book.nested_tags.size > 0 ? book.nested_tags[0].id : 0%>
 	<script type="text/javascript" charset="utf-8">
@@ -71,7 +71,10 @@
 		<div>
 			<%= book.document.original_filename %>&#160;
 			<% if admin_signed_in? -%>
-				<%= link_to image_tag("icons/bin_empty.png"),destroy_document_book_path(book), :method => :delete, :title => "Anhang löschen", :confirm => "Willst Du diesen Anhang wirklich löschen?"%><% end %>
+				<%= link_to image_tag("icons/bin_empty.png"), destroy_document_book_path(book), 
+					:method => :delete, :title => "Anhang löschen", 
+					:confirm => "Willst Du diesen Anhang wirklich löschen?"%>
+			<% end %>
 		</div>
 	<% else %>
 		<h4>Datei anhängen</h4>

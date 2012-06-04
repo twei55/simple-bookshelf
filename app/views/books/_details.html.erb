@@ -28,7 +28,8 @@
 <div class="section border">
 	<div class="file">
 	<h5 style="margin-bottom:10px">Dateianhang</h5>
-	<div style="float:left;margin-right:10px"><%= link_to image_tag("icons/file_pdf.png"),book.document.url, :title => "Anhang herunterladen"%></div>
-	<div><%= link_to book.document.original_filename,book.document.url,:title => "Anhang herunterladen" %></div>
+	<div style="float:left;margin-right:10px">
+		<%= link_to image_tag("icons/file_pdf.png"),book.document.url, :title => "Anhang herunterladen"%></div>
+	<div><%= link_to book.document.original_filename, book.document.url, :title => "Anhang herunterladen" %></div>
 </div>
 <% end %>

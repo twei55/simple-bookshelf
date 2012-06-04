@@ -46,8 +46,8 @@ class Book < ActiveRecord::Base
   ##############
 
   has_attached_file :document, 
-    :url => "/system/books/documents/:id/original/:basename_:style.:extension",
-    :path => ":rails_root/public/system/books/documents/:id/original/:basename_:style.:extension"
+    :url => "/system/books/documents/:id/original/:basename.:extension",
+    :path => ":rails_root/public/system/books/documents/:id/original/:basename.:extension"
 
   ##############
   # Thinking Sphinx

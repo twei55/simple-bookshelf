@@ -5,6 +5,8 @@ class BooksController < ApplicationController
 	before_filter :authenticate_user_or_admin, :only => [:index, :show]
 	before_filter :authenticate_admin!, :only => [:new, :create, :edit, :update, :destroy]
 
+	before_filter :delete_tag_in_use_fragment, :only => [:create, :update, :destroy]
+
 	def index
 		@books = Book.filter(params)
 		@current_tag_id = params[:book] ? params[:book][:tag].to_i : 0
@@ -86,6 +88,7 @@ class BooksController < ApplicationController
 		@book = Book.find(params[:id])
 		@book.document = nil
 		@book.save!
+		
 		redirect_to edit_book_path(@book)
 	end
   
@@ -99,8 +102,10 @@ class BooksController < ApplicationController
   
   private
   
-  def delete_fragments
-    expire_fragment(:controller => "books", :action_suffix => 'tag_in_use_selection')
+  def delete_tag_in_use_fragment
+    expire_fragment(:controller => "books", 
+    	:action => "new", 
+    	:action_suffix => 'tag_in_use_selection')
   end
 
 	protected

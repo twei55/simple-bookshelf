@@ -41,7 +41,7 @@ SimpleBookshelf::Application.routes.draw do
   resources :formats, :except => [:new, :edit]
 
   resources :keywords, 
-    :controller => :nested_tags, 
+    :controller => :nested_tags,
     :only => [:index, :create, :update, :destroy]
 
   match "/admin" => redirect("/admins/sign_in")

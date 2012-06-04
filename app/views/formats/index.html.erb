@@ -3,27 +3,33 @@
 </div>
 <div class="section">
 <h2>Neue Publikationsart anlegen</h2>
-<%= simple_form_for(@format, :url=>{:controller=>"formats", :action => "create"}, :html => {:id => 'new_format_form'}) do |f| %>
+<%= simple_form_for(@format) do |f| %>
 	<%= f.input :name, :label => "Publikationsart anlegen" %>
-	<%= f.submit "Hinzufügen", {:id => "add_format_button", :class => "btn btn-primary"}%>
+	<%= f.submit "Hinzufügen", {:class => "btn btn-primary"}%>
 <% end %>
 </div>
 <div class="section border">
 <h2>Publikationsart ändern</h2>
-<%= simple_form_for(@format, :url=>{:controller=>"formats", :action => "update"}, :html => {:method => "put", :id => 'update_format_form'}) do |f| %>
+<%= form_tag('/formats/1', :method => :put) do |f| %>
 	<div>
-		<%= f.select(:id,Format.all.collect {|fm| [fm.name,fm.id]}, {:label => "Publikationsart auswählen", :include_blank => "--- Bitte wählen ---"}) %>
+		<%= label_tag :id, "Publikationsart auswählen" %>
+		<%= select(:format, :id, Format.all.collect {|fm| [fm.name,fm.id]}, 
+			{:include_blank => "--- Bitte wählen ---"})
+			%>
 	</div>
-	<%= f.input :name, :label => "Neue Bezeichnung" %>
-	<%= f.submit "Aktualisieren", {:id => "add_format_button", :class => "btn btn-primary"}%>
+	<label for="name">Neue Bezeichnung</label>
+	<%= text_field :format, :name %>
+	<%= submit_tag "Aktualisieren", {:class => "btn btn-primary"}%>
 <% end %>
 </div>
 <div class="section border">
 <h2>Publikationsart löschen</h2>
-<%= simple_form_for(@format, :url=>{:controller=>"formats", :action => "destroy"}, :html => {:method => "delete", :id => 'delete_format_form'}) do |f| %>
+<%= form_tag('/formats/1', :method => :delete) do |f| %>
 	<div style="margin-bottom:10px;">
-		<%= f.select(:id,Format.all.collect {|fm| [fm.name,fm.id]}, {:label => "Publikationsart auswählen", :include_blank => "--- Bitte wählen ---"}) %>
+		<%= label_tag :id, "Publikationsart auswählen" %>
+		<%= select(:format, :id, Format.all.collect {|fm| [fm.name,fm.id]}, 
+			{:include_blank => "--- Bitte wählen ---"}) %>
 	</div>
-	<%= f.submit "Löschen", {:id => "add_format_button", :class => "btn btn-primary"}%>
+	<%= submit_tag "Löschen", {:class => "btn btn-primary"}%>
 <% end %>
 </div>

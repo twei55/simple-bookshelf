@@ -87,7 +87,7 @@ class BooksController < ApplicationController
 	def destroy_document
 		@book = Book.find(params[:id])
 		@book.document = nil
-		@book.save!
+		@book.save(:validate => false)
 		
 		redirect_to edit_book_path(@book)
 	end

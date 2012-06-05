@@ -30,7 +30,7 @@ SimpleBookshelf::Application.routes.draw do
     resources :authors, :only => :destroy
 
     member do
-      delete 'destroy_document'
+      get 'destroy_document'
     end
 
     collection do

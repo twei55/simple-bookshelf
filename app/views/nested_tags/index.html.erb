@@ -1,28 +1,31 @@
 <div id="message">
 	<%= flash[:notice]%>
 </div>
-<div class="section">
+<div id="new-keyword-form" class="section">
 <h2>Schlagwort anlegen</h2>
-<%= simple_form_for(@nested_tag, :url => keywords_path, 
-	:method => :post, :namespace => "new") do |f| %>
-	<%= f.select :parent_id, NestedTag.root.collect {|tag|[tag.name,tag.id]}, {:label => "Oberkategorie auswählen", :hint => "Wird keine Oberkategorie ausgewählt, so wird eine neue angelegt.", :include_blank => "Bitte auswählen"}%>
+<%= simple_form_for(@nested_tag, :url => keywords_path) do |f| %>
+	<%= f.select :parent_id, NestedTag.root.collect {|tag|[tag.name,tag.id]}, 
+		{:label => "Oberkategorie auswählen", :hint => "Wird keine Oberkategorie ausgewählt, so wird eine neue angelegt.", :include_blank => "Bitte auswählen"}
+	%>
 	<%= f.input :name, {:label => "Schlagwort anlegen", :hint => "Das neue Schlagwort wird der gewählten Oberkategorie zugeordnet."} %>
 	<%= f.submit "Schlagwort hinzufügen", {:class => "btn btn-primary"} %>
 <% end %>
 </div>
-<div class="section border">
+<div id="update-keyword-form" class="section border">
 <h2>Schlagwort ändern</h2>
 <%= form_tag("keywords/1", :method => :put) do |f| %>
 	<div>
 		<label for="nested_tag_id">Schlagwort auswählen</label>
 		<%= partial "shared/tag_selection" %>
 	</div>
-	<%= label_tag :name, "Neue Bezeichnung" %>
-	<%= text_field :nested_tag, :name %>
+	<div>
+		<%= label_tag :name, "Neue Bezeichnung" %>
+		<%= text_field :nested_tag, :name %>
+	</div>
 	<%= submit_tag "Schlagwort aktualisieren", {:class => "btn btn-primary"}%>
 <% end %>
 </div>
-<div class="section border">
+<div id="delete-keyword-form" class="section border">
 <h2>Schlagwort löschen</h2>
 <%= form_tag("keywords/1", :method => :delete) do |f| %>
 	<div style="margin-bottom:10px;">

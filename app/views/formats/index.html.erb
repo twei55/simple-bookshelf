@@ -1,20 +1,21 @@
 <div id="message">
 	<%= flash[:notice]%>
 </div>
-<div class="section">
+<div id="new-format-form" class="section">
 <h2>Neue Publikationsart anlegen</h2>
 <%= simple_form_for(@format) do |f| %>
 	<%= f.input :name, :label => "Publikationsart anlegen" %>
 	<%= f.submit "Hinzufügen", {:class => "btn btn-primary"}%>
 <% end %>
 </div>
-<div class="section border">
+<div id="update-format-form" class="section border">
 <h2>Publikationsart ändern</h2>
 <%= form_tag('/formats/1', :method => :put) do |f| %>
 	<div>
-		<%= label_tag :id, "Publikationsart auswählen" %>
+		<%= label_tag "format-id-update", "Publikationsart auswählen" %>
 		<%= select(:format, :id, Format.all.collect {|fm| [fm.name,fm.id]}, 
-			{:include_blank => "--- Bitte wählen ---"})
+			{:include_blank => "--- Bitte wählen ---"},
+			{:id => "format-id-update"})
 			%>
 	</div>
 	<label for="name">Neue Bezeichnung</label>
@@ -22,13 +23,14 @@
 	<%= submit_tag "Aktualisieren", {:class => "btn btn-primary"}%>
 <% end %>
 </div>
-<div class="section border">
+<div id="delete-format-form" class="section border">
 <h2>Publikationsart löschen</h2>
 <%= form_tag('/formats/1', :method => :delete) do |f| %>
 	<div style="margin-bottom:10px;">
-		<%= label_tag :id, "Publikationsart auswählen" %>
+		<%= label_tag "format-id-delete", "Publikationsart auswählen" %>
 		<%= select(:format, :id, Format.all.collect {|fm| [fm.name,fm.id]}, 
-			{:include_blank => "--- Bitte wählen ---"}) %>
+			{:include_blank => "--- Bitte wählen ---"},
+			{:id => "format-id-delete"}) %>
 	</div>
 	<%= submit_tag "Löschen", {:class => "btn btn-primary"}%>
 <% end %>

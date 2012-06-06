@@ -65,7 +65,7 @@
 
 <!-- Upload -->
 <div class="section border">
-	<% if book.document.file? %>
+	<% if !book.new_record? && book.document.file? %>
 	<h4>Vorhandene Datei ersetzen oder löschen</h4>
 		<div style="float:left;margin-right:10px"><%= image_tag("icons/file_pdf.png") %></div>
 		<div>

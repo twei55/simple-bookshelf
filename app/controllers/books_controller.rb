@@ -4,8 +4,8 @@ class BooksController < ApplicationController
 
 	before_filter :authenticate_user_or_admin, :only => [:index, :show]
 	before_filter :authenticate_admin!, :only => [:new, :create, :edit, :update, :destroy]
-
 	before_filter :delete_tag_in_use_fragment, :only => [:create, :update, :destroy]
+	before_filter :delete_new_authors_from_params_hash, :only => [:create, :update]
 
 	def index
 		@books = Book.filter(params)
@@ -106,6 +106,10 @@ class BooksController < ApplicationController
     expire_fragment(:controller => "books", 
     	:action => "new", 
     	:action_suffix => 'tag_in_use_selection')
+  end
+
+  def delete_new_authors_from_params_hash
+  	params["book"]["authors_attributes"].delete("new_authors")
   end
 
 	protected

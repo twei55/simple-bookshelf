@@ -217,4 +217,41 @@ describe Book do
 
   end
 
+  context "Creation of books" do
+
+    describe 'validation' do
+
+      it "makes sure entry is not valid without an author" do
+        params = {"book" => {
+          "title" => "Test",
+          "year" => "2010",
+          "publisher" => "dtv",
+          "authors_attributes" => {"0" =>
+              {"first_name" => "", "last_name" => "", "_destroy"=>"false"}
+            }
+          }
+        }
+        book = Book.new(params["book"])
+        book.valid?.should be_false
+      end
+
+      it "makes sure entry is valid when publisher author" do
+        params = {"book" => {
+          "title" => "Test",
+          "year" => "2010",
+          "publisher" => "dtv",
+          "publisher_is_author" => true,
+          "authors_attributes" => {"0" =>
+              {"first_name" => "", "last_name" => "", "_destroy"=>"false"}
+            }
+          }
+        }
+        book = Book.new(params["book"])
+        book.valid?.should be_true
+      end
+
+    end
+
+  end
+
 end

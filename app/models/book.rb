@@ -7,7 +7,8 @@ class Book < ActiveRecord::Base
   has_many :book_authors
   has_many :authors, :through => :book_authors
 
-  accepts_nested_attributes_for :authors, :reject_if => lambda { |author| author[:last_name].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :authors, 
+    :reject_if => :has_no_author_or_publisher?, :allow_destroy => true
   
   has_and_belongs_to_many :nested_tags, :join_table => "books_nested_tags"
   has_and_belongs_to_many :formats
@@ -68,6 +69,14 @@ class Book < ActiveRecord::Base
     has year
 
     set_property :delta => true
+  end
+
+  # 
+  # Copy publisher name to author last name
+  # and check if attribute is blank
+  def has_no_author_or_publisher?(author)
+    author["last_name"] = self.publisher if self.publisher_is_author
+    author["last_name"].blank?
   end
 
   class << self 

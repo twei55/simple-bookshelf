@@ -12,7 +12,7 @@ class Author < ActiveRecord::Base
   ################################
   
   # validates_presence_of :first_name, :message => "Bitte gib einen Vornamen an"
-  validates_presence_of :last_name, :message => "Bitte gebe einen Nachnamen an"
+  # validates_presence_of :last_name, :message => "Bitte gebe einen Nachnamen an"
   
   #############
   # Hooks
@@ -21,14 +21,18 @@ class Author < ActiveRecord::Base
   before_save :set_full_name, :set_full_name_reversed
 
   def set_full_name
-    self[:full_name] = "#{first_name} #{last_name}"
+    if first_name.present?
+      self[:full_name] = "#{first_name} #{last_name}"
+    else
+      self[:full_name] = "#{last_name}"
+    end
   end
 
   def set_full_name_reversed
     if first_name.present?
       self[:full_name_reversed] = "#{last_name}, #{first_name}"
     else
-      self[:full_name_reversed] = last_name
+      self[:full_name_reversed] = "#{last_name}"
     end
   end
 

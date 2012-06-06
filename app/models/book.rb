@@ -22,7 +22,7 @@ class Book < ActiveRecord::Base
   validates_presence_of :publisher, :message => "Bitte gebe einen Verlag an"
   validates_presence_of :authors, :message => "Bitte gebe mindestens einen Autor an"
 
-  validates_associated :authors
+  # validates_associated :authors, :message => "Bitte gebe mindestens einen Autor an"
   
   validates_attachment_content_type :document, :content_type => ['application/pdf'], :allow_blank => true
 

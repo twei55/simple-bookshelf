@@ -42,6 +42,11 @@
 <!-- Authors -->
 <div class="section border">
 	<h2>Autoren</h2>
+	<% if @book.errors && @book.errors.messages[:authors] %>
+		<div class="control-group error">
+			<label><%= @book.errors.messages[:authors][0] %></label>
+		</div>
+	<% end %>
 	<div class="row">
 		<div class="span0"><%= f.check_box "publisher_is_author", {}, @book.publisher_is_author %></div>
 		<div class="span5"><%= f.label :publisher_is_author, "Autor entspricht Herausgeber / Verlag" %></div>

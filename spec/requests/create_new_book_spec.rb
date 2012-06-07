@@ -88,13 +88,10 @@ describe "create book" do
       end
 
       it "redirects to books list when required fields have been filled in" do
-        # FIXME
-        # Checking checkbox fails when testing
-        
-        # page.should have_content("Ergebnisliste")
-        # fill_in("query", :with => "My new title")
-        # click_button("Suche")
-        # page.should have_content("My new title")
+        page.should have_content("Ergebnisliste")
+        fill_in("query", :with => "My new title")
+        click_button("Suche")
+        page.should have_content("My new title")
       end
 
     end

@@ -53,7 +53,7 @@ module BooksHelper
     option_tags = [["-- Bitte auswählen --", ""]]
     option_tags = option_tags + add_options(categories, level, options)
 
-    select_options = {:id => "#{model}_#{name}"}
+    select_options = {:id => "#{model}_#{name}", :class => "span5"}
     select_options[:multiple] = options[:multiple] || false
 
     select_tag("#{model}[#{name}]", 

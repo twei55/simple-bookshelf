@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Book < ActiveRecord::Base
 
 	################################
@@ -25,7 +27,8 @@ class Book < ActiveRecord::Base
 
   validates_associated :authors, :message => "Bitte gebe mindestens einen Autor an"
   
-  validates_attachment_content_type :document, :content_type => ['application/pdf'], :allow_blank => true
+  validates_attachment_content_type :document, :content_type => ['application/pdf'], 
+  :allow_blank => true, :message => "Die angehängte Datei muss vom Typ .pdf sein"
 
   ###############
   # Scopes

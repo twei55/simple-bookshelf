@@ -1,6 +1,3 @@
-<div id="message">
-	<%= flash[:notice]%>
-</div>
 <div id="new-format-form" class="section">
 <h2>Neue Publikationsart anlegen</h2>
 <%= simple_form_for(@format) do |f| %>
@@ -17,9 +14,9 @@
 			{:include_blank => "--- Bitte wählen ---"},
 			{:id => "format-id-update"})
 			%>
+		<label for="name">Neue Bezeichnung</label>
+		<%= text_field :format, :name %>
 	</div>
-	<label for="name">Neue Bezeichnung</label>
-	<%= text_field :format, :name %>
 	<%= submit_tag "Aktualisieren", {:class => "btn btn-primary"}%>
 <% end %>
 </div>

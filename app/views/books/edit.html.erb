@@ -2,9 +2,6 @@
 	<%= javascript_include_tag "simple-bookshelf/BookForm"%>
 <% end -%>
 <h2 style="margin-bottom:0">Titel bearbeiten</h2>
-<% @book.errors.each do |error|%>
- <%= error%>
-<% end %>
 <div style="margin-bottom:25px">
 	<% if @book.updated_at %>
 	Letzte Änderung: <%= @book.updated_at.strftime("%d.%m.%Y, %H:%M:%S") %>

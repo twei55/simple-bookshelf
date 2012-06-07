@@ -23,6 +23,7 @@
 <div style="clear:left">
 <label for="book_nested_tag_ids">Schlagwort auswählen</label>
 	<%= partial "shared/tag_selection" %>
+	<span class="help-block"><em>Zur Mehrfachwauswahl bitte die Taste 'Strg/Ctrl' (Win) oder 'Cmd' (Mac) beim Auswählen gedrückt halten.</em></span>
 	<%# Set selected tag on client because partial is cached %>
 	<%= hidden_field_tag "tag_id",book.nested_tags.size > 0 ? book.nested_tags[0].id : 0%>
 	<script type="text/javascript" charset="utf-8">
@@ -70,6 +71,11 @@
 
 <!-- Upload -->
 <div class="section border">
+	<% if @book.errors && @book.errors.messages[:document_content_type] %>
+		<div class="control-group error">
+			<label><%= @book.errors.messages[:document_content_type][0] %></label>
+		</div>
+	<% end %>
 	<% if !book.new_record? && book.document.file? %>
 	<h4>Vorhandene Datei ersetzen oder löschen</h4>
 		<div style="float:left;margin-right:10px"><%= image_tag("icons/file_pdf.png") %></div>
@@ -86,4 +92,5 @@
 		<h4>Datei anhängen</h4>
 	<% end %>
 	<%= f.file_field :document, :label => "Datei auswählen ...", :style => "height:24px" %>
+	<span class="help-block"><em>Mögliche Dateitypen: PDF</em></span>
 </div>

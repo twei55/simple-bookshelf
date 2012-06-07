@@ -48,7 +48,7 @@
 		</div>
 	<% end %>
 	<div class="row">
-		<div class="span0"><%= f.check_box "publisher_is_author", {}, @book.publisher_is_author %></div>
+		<div class="span0"><%= f.check_box :publisher_is_author %></div>
 		<div class="span5"><%= f.label :publisher_is_author, "Autor entspricht Herausgeber / Verlag" %></div>
 	</div>
 	<div id="authors">

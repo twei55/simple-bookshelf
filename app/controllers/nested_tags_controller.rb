@@ -18,31 +18,32 @@ class NestedTagsController < ApplicationController
     else
       flash[:notice] = "Neues Schlagwort konnte nicht angelegt werden."
     end
+    
     redirect_to keywords_path
   end
   
   def update
-    begin
+    if (params[:book] && params[:book][:nested_tag_ids])
       @nt = NestedTag.find(params[:book][:nested_tag_ids][0])
       @nt.update_attributes(params[:nested_tag])
       flash[:notice] = "Schlagwort wurde aktualisiert."
-      redirect_to keywords_path
-    rescue ActiveRecord::RecordNotFound
+    else
       flash[:notice] = "Schlagwort konnte nicht aktualisiert werden."
-      redirect_to keywords_path      
     end
+
+    redirect_to keywords_path
   end
   
   def destroy
-    begin
+    if (params[:book] && params[:book][:nested_tag_ids])
       @nt = NestedTag.find(params[:book][:nested_tag_ids][0])
       @nt.destroy
       flash[:notice] = "Schlagwort(e) wurde gelöscht."
-      redirect_to keywords_path
-    rescue ActiveRecord::RecordNotFound
+    else
       flash[:notice] = "Schlagwort(e) konnte nicht gelöscht werden."
-      redirect_to keywords_path      
     end
+
+    redirect_to keywords_path
   end
   
   private

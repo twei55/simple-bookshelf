@@ -1,0 +1,18 @@
+<div class="alert alert-info">
+	<a class="close" data-dismiss="alert" href="#">×</a>
+	<%= notice %>
+</div>
+<div class="alert alert-error">
+	<a class="close" data-dismiss="alert" href="#">×</a>
+	<%= alert %>
+</div>
+<script type="text/javascript">
+	$(".alert").alert();
+
+	if ($('div.alert-info').contents()[2].textContent.trim() == "") {
+		$('div.alert-info').alert('close');
+	}
+	if ($('div.alert-error').contents()[2].textContent.trim() == "") {
+		$('div.alert-error').alert('close');
+	}
+</script>

@@ -12,13 +12,14 @@
     <![endif]-->
 
   <%= stylesheet_link_tag "twitter/bootstrap.min", "bootstrap-overrides", :media => "all" %>
-	<%= javascript_include_tag "lib/prototype"%>
-	<%= yield :head%>
+	<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" %>
+	<%= javascript_include_tag "lib/URI.min" %>
+	<%= javascript_include_tag "bootstrap/bootstrap-alert" %>
+	<%= yield :head %>
 </head>
 <body>
 	<div class="container">
-		<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+		<%= partial "shared/alerts" %>
 		<!-- Header:a -->
 		<div id="header" class="grid_16">
 			<%= partial "shared/header" %>

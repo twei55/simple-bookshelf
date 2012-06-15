@@ -1,10 +1,10 @@
 <div class="alert alert-info">
 	<a class="close" data-dismiss="alert" href="#">×</a>
-	<%= notice %>
+	<%= flash[:notice] %>
 </div>
 <div class="alert alert-error">
 	<a class="close" data-dismiss="alert" href="#">×</a>
-	<%= alert %>
+	<%= flash[:error] %>
 </div>
 <script type="text/javascript">
 	$(".alert").alert();

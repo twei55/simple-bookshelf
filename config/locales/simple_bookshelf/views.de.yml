@@ -80,7 +80,7 @@ de:
         book_title: "Titel"
         book_year: "Jahr"
         book_publisher: "Herausgeber"
-      no_results: "Keine Titel gefunden"
+      books_no_results: "Keine Titel gefunden"
     links:
       titles:
         sort_by_author: "Nach Autor sortieren"

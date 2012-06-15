@@ -21,7 +21,7 @@ describe "create, update, delete keywords" do
 			fill_in("nested_tag_name", :with => "Exklusion")
 		end
 
-		click_button("Schlagwort hinzufügen")
+		click_button("Hinzufügen")
 		find("#nested_tag_parent_id").has_text?("Exklusion").should be_true
 
 		within("div#update-keyword-form") do
@@ -37,7 +37,7 @@ describe "create, update, delete keywords" do
 			fill_in("nested_tag_name", :with => 'Ausschluß')
 		end
 
-		click_button("Schlagwort aktualisieren")
+		click_button("Aktualisieren")
 		find("#nested_tag_parent_id").has_text?("Ausschluß").should be_true
 
 		within("div#update-keyword-form") do
@@ -50,7 +50,7 @@ describe "create, update, delete keywords" do
 
 		within("div#delete-keyword-form") do
 			select('Ausschluß', :from => "book_nested_tag_ids")
-			click_button("Schlagwort löschen")
+			click_button("Löschen")
 		end
 
 		find("#nested_tag_parent_id").has_text?("Ausschluß").should be_false

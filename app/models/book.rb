@@ -94,6 +94,7 @@ class Book < ActiveRecord::Base
     end
 
     def build_query_string(params)
+      return "" if params[:query] && params[:query].strip.eql?("")
       fields = []
 
       if params[:choices] && Book.is_selected?(params[:choices][:author])

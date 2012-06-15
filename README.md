@@ -16,19 +16,11 @@ Simple Bookshelf is a Rails3 application that was built to organize all kind of 
 * Ruby 1.9.2
 * [Rails 3.2](https://github.com/rails/rails)
 * [Sphinx](http://sphinxsearch.com/)
-
 * [Devise](https://github.com/plataformatec/devise)
 * [Paperclip](https://github.com/thoughtbot/paperclip)
 * [Simple Form](https://github.com/plataformatec/simple_form)
 * [Thinking Sphinx](https://github.com/freelancing-god/thinking-sphinx)
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
-
-## Was tested with care and the help of ...
-
-* Rspec2
-* FactoryGirl
-* Capybara
-* DatabaseCleaner
 
 ## Installation
 
@@ -39,7 +31,3 @@ Simple Bookshelf is a Rails3 application that was built to organize all kind of 
 ## License
 
 Simple Bookshelf is released under the [MIT license](www.opensource.org/licenses/MIT)
-
-## TODO
-
-* Internationalization

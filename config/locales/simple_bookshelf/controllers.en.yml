@@ -1,0 +1,8 @@
+# encoding: utf-8
+en:
+  sb:
+    flash:
+      notices:
+        add_format_success: "Neue Publikationsart wurde angelegt."
+      errors:
+        add_format_error: "Neues Publikationsart konnte nicht angelegt werden. Entweder sie haben keinen Namen eingegeben oder eine Publikationsart mit gleichem Namen existiert bereits."

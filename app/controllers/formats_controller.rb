@@ -9,10 +9,9 @@ class FormatsController < ApplicationController
 	def create
 		@format = Format.new(params[:format]) if Format.find_by_name(params[:format][:name]).nil?
 		if (!@format.nil? && @format.save)
-			flash[:notice] = "Neue Publikationsart wurde angelegt."
+			flash[:notice] = I18n.t("sb.flash.notices.create_format_success")
 		else
-			flash[:notice] = "Neues Publikationsart konnte nicht angelegt werden.<br />Entweder sie haben keinen Namen eingegeben
-                       oder eine Publikationsart mit gleichem Namen existiert bereits."
+			flash[:error] = I18n.t("sb.flash.errors.create_format_error")
 		end
 
     redirect_to formats_path
@@ -22,10 +21,10 @@ class FormatsController < ApplicationController
     begin
       @format = Format.find(params[:format][:id])
       @format.update_attributes(params[:format])
-      flash[:notice] = "Publikationsart wurde aktualisiert."
+      flash[:notice] = I18n.t("sb.flash.notices.update_format_success")
       redirect_to formats_path
     rescue ActiveRecord::RecordNotFound
-      flash[:notice] = "Publikationsart konnte nicht aktualisiert werden."
+      flash[:error] = I18n.t("sb.flash.errors.update_format_error")
       redirect_to formats_path    
     end
   end
@@ -34,10 +33,10 @@ class FormatsController < ApplicationController
     begin
       @format = Format.find(params[:format][:id])
       @format.destroy
-      flash[:notice] = "Publikationsart wurde gelöscht."
+      flash[:notice] = I18n.t("sb.flash.notices.delete_format_success")
       redirect_to formats_path
     rescue ActiveRecord::RecordNotFound
-      flash[:notice] = "Publikationsart konnte nicht gelöscht werden."
+      flash[:error] = I18n.t("sb.flash.errors.delete_format_error")
       redirect_to formats_path      
     end
   end

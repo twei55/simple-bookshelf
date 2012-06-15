@@ -50,7 +50,7 @@ module BooksHelper
   # #
 
   def tree_select(categories, model, name, level=-1, selected="", options={})
-    option_tags = [["-- Bitte auswählen --", ""]]
+    option_tags = [[I18n.t("sb.forms.select.blank_option"), ""]]
     option_tags = option_tags + add_options(categories, level, options)
 
     select_options = {:id => "#{model}_#{name}"}

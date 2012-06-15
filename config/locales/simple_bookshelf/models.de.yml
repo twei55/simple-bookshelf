@@ -1,0 +1,14 @@
+# encoding: utf-8
+
+de:
+  sb:
+    book:
+      validations:
+        title_missing: "Bitte gebe einen Titel an"
+        publisher_missing: "Bitte gebe einen Verlag an"
+        year_missing: "Bitte gebe ein Erscheinungsjahr an"
+        author_missing: "Bitte gebe mindestens einen Autor an"
+        attachment_content_type: "Die angehängte Datei muss vom Typ .pdf sein"
+    author:
+      validations:
+        last_name_missing: "Bitte gebe einen Nachnamen an"

@@ -20,15 +20,15 @@ class Book < ActiveRecord::Base
   # Validations
   ###############
 
-  validates_presence_of :title, :message => "Bitte gebe einen Titel an"
-  validates_presence_of :year, :message =>  "Bitte gebe ein Erscheinungsjahr an"
-  validates_presence_of :publisher, :message => "Bitte gebe einen Verlag an"
-  validates_presence_of :authors, :message => "Bitte gebe mindestens einen Autor an"
+  validates_presence_of :title, :message => I18n.t("sb.book.validations.title_missing")
+  validates_presence_of :year, :message =>  I18n.t("sb.book.validations.year_missing")
+  validates_presence_of :publisher, :message => I18n.t("sb.book.validations.publisher_missing")
+  validates_presence_of :authors, :message => I18n.t("sb.book.validations.author_missing")
 
-  validates_associated :authors, :message => "Bitte gebe mindestens einen Autor an"
+  validates_associated :authors, :message => I18n.t("sb.book.validations.author_missing")
   
   validates_attachment_content_type :document, :content_type => ['application/pdf'], 
-  :allow_blank => true, :message => "Die angehängte Datei muss vom Typ .pdf sein"
+  :allow_blank => true, :message => I18n.t("sb.book.validations.attachment_content_type")
 
   ###############
   # Scopes

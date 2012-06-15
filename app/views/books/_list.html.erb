@@ -3,16 +3,20 @@
 		<tr>
 			<th class="number">Nr.</th>
 			<th class="author">
-				<%= link_to "Autor", books_path + "?sort=author_last_name" + add_post_params(params), :title => "Nach Autor sortieren"%><%= add_order_arrow("author_last_name",params)%>
+				<%= link_to I18n.t("sb.tables.headers.author"), books_path + "?sort=author_last_name" + add_post_params(params), :title => I18n.t("sb.links.titles.sort_by_author") %>
+				<%= add_order_arrow("author_last_name", params)%>
 			</th>
 			<th class="title">
-				<%= link_to "Titel", books_path + "?sort=title" + add_post_params(params), :title => "Nach Titel sortieren"%><%= add_order_arrow("title",params)%>
+				<%= link_to I18n.t("sb.tables.headers.book_title"), books_path + "?sort=title" + add_post_params(params), :title => I18n.t("sb.links.titles.sort_by_title") %>
+				<%= add_order_arrow("title", params)%>
 			</th>
 			<th class="year">
-				<%= link_to "Jahr", books_path + "?sort=year" + add_post_params(params), :title => "Nach Erscheinungsjahr sortieren"%><%= add_order_arrow("year",params)%>
+				<%= link_to I18n.t("sb.tables.headers.book_year"), books_path + "?sort=year" + add_post_params(params), :title => I18n.t("sb.links.titles.sort_by_year") %>
+				<%= add_order_arrow("year", params)%>
 			</th>
 			<th class="publisher">
-				<%= link_to "Herausgeber", books_path + "?sort=publisher" + add_post_params(params), :title => "Nach Herausgeber sortieren"%><%= add_order_arrow("publisher",params)%>
+				<%= link_to I18n.t("sb.tables.headers.book_publisher"), books_path + "?sort=publisher" + add_post_params(params), :title => I18n.t("sb.links.titles.sort_by_publisher") %>
+				<%= add_order_arrow("publisher", params)%>
 			</th>
 			<th class="actions"></th>
 		</tr>
@@ -23,29 +27,32 @@
 	<tr <%= (i.odd?) ? "class='odd'" : ""%>>
 		<td><%= display_number(i) %></td>
 		<td><%= display_linked_authors(book.authors) %></td>
-		<td><%= link_to book.title, book_path(book), :title => "Details anzeigen" %>&#160;<%= image_tag("icons/file_pdf_small.png", :title => "Anhang") if book.document.file? %></td>
+		<td><%= link_to book.title, book_path(book), 
+			:title => I18n.t("sb.links.titles.show_details") %>&#160;
+			<%= image_tag("icons/file_pdf_small.png", 
+				:title => I18n.t("sb.links.titles.book_attachment")) if book.document.file? %></td>
 		<td><%= book.year %></td>
 		<td><%= book.publisher %></td>
 		<td class="buttons">
 			<% if admin_signed_in? -%>
-				<%= button_to "Bearbeiten",
+				<%= button_to I18n.t("sb.forms.buttons.edit_book"),
 					edit_book_path(book), 
-					:title => "Buch bearbeiten",
+					:title => I18n.t("sb.links.titles.edit_book"),
 					:class => "btn edit-book",
 					:method => :get %>
-				<%= button_to "Löschen",
+				<%= button_to I18n.t("sb.forms.buttons.delete_book"),
 					book_path(book), 
 					:method => :delete,
-					:title => "Buch löschen",
+					:title => I18n.t("sb.links.titles.delete_book"),
 					:class => "btn delete-book",
-					:confirm => "Willst Du diesen Titel wirklich löschen?"%>
+					:confirm => I18n.t("sb.links.confirms.delete_book") %>
 			<% end %>
 		</td>
 	</tr>
 	<% end -%>
 	<% else -%>
 		<tr>
-			<td colspan="6">Keine Treffer.</td>
+			<td colspan="6"><%= I18n.t("sb.tables.books.no_results") %></td>
 		</tr>
 	<% end -%>
 	</tbody>

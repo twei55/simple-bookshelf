@@ -37,8 +37,10 @@ class BooksController < ApplicationController
     end
 
     if (@book.save)
+    	flash[:notice] = I18n.t("sb.flash.notices.create_book_success")
       redirect_to books_path
     else
+    	flash[:error] = I18n.t("sb.flash.errors.create_book_error")
       @book.authors.build
       render :action => "new"
     end
@@ -70,8 +72,10 @@ class BooksController < ApplicationController
     end
 
     if (@book.save)
+    	flash[:notice] = I18n.t("sb.flash.notices.update_book_success")
       redirect_to books_path
     else
+    	flash[:error] = I18n.t("sb.flash.errors.update_book_error")
       render :action => "edit"
     end
 
@@ -81,6 +85,7 @@ class BooksController < ApplicationController
 		@book = Book.find(params[:id])
 		@book.destroy
 
+		flash[:notice] = I18n.t("sb.flash.notices.delete_book_success")
 		redirect_to books_path
 	end
 
@@ -89,6 +94,7 @@ class BooksController < ApplicationController
 		@book.document = nil
 		@book.save(:validate => false)
 		
+		flash[:notice] = I18n.t("sb.flash.notices.delete_attachment_success")
 		redirect_to edit_book_path(@book)
 	end
   

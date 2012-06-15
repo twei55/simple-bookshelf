@@ -1,0 +1,24 @@
+# encoding: utf-8
+de:
+  sb:
+    flash:
+      notices:
+        create_format_success: "Neue Publikationsart wurde angelegt."
+        update_format_success: "Publikationsart wurde aktualisiert."
+        delete_format_success: "Publikationsart wurde gelöscht."
+        create_tag_success: "Neues Schlagwort wurde angelegt."
+        update_tag_success: "Schlagwort wurde aktualisiert."
+        delete_tag_success: "Schlagwort(e) wurde gelöscht."
+        create_book_success: "Neuer Titel wurde angelegt."
+        update_book_success: "Titel wurde aktualisiert."
+        delete_book_success: "Titel wurde gelöscht."
+        delete_attachment_success: "Der Anhang wurde gelöscht."
+      errors:
+        create_format_error: "Neues Publikationsart konnte nicht angelegt werden."
+        update_format_error: "Publikationsart konnte nicht aktualisiert werden."
+        delete_format_error: "Publikationsart konnte nicht gelöscht werden."
+        create_tag_error: "Neues Schlagwort konnte nicht angelegt werden."
+        update_tag_error: "Schlagwort konnte nicht aktualisiert werden."
+        delete_tag_error: "Schlagwort(e) konnte nicht gelöscht werden."
+        create_book_error: "Titel konnte nicht angelegt werden. Es sind Fehler aufgetreten."
+        update_book_error: "Titel konnte nicht aktualisiert werden. Es sind Fehler aufgetreten."

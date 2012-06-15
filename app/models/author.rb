@@ -11,8 +11,7 @@ class Author < ActiveRecord::Base
   ### ActiveRecord Validations  ##
   ################################
   
-  # validates_presence_of :first_name, :message => "Bitte gib einen Vornamen an"
-  validates_presence_of :last_name, :message => "Bitte gebe einen Nachnamen an"
+  validates_presence_of :last_name, :message => I18n.t("sb.author.validations.last_name_missing")
   
   #############
   # Hooks

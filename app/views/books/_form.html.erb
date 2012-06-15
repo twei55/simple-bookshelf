@@ -1,12 +1,12 @@
-<%= f.input :title, :label => "Titel", 
+<%= f.input :title, :label => I18n.t("sb.forms.labels.book_title"), 
 	:input_html => {:class => "span5"} %>
 <div id="similar_books" style="display:none"></div>
-<%= f.input :year, :label => "Erscheinungsjahr", :input_html => { :style => "width:50px", :maxlength => "4" }%>
-<%= f.input :publisher, :label => "Herausgebende Institution / Verlag", 
+<%= f.input :year, :label => I18n.t("sb.forms.labels.book_year"), :input_html => { :style => "width:50px", :maxlength => "4" }%>
+<%= f.input :publisher, :label => I18n.t("sb.forms.labels.book_publisher"), 
 	:input_html => {:class => "span5"} %>
 
 <!-- Formats -->
-<label for="formats">Publikationsart(en) auswählen</label>
+<label for="formats"><%= I18n.t("sb.forms.labels.book_select_formats") %></label>
 <% Format.all(:order => "name ASC").each_with_index do |fm, i| -%>
 	<% if i%3==0 -%>
 		<div style="float:left;height:80px;margin-right:15px">
@@ -21,9 +21,9 @@
 
 <!-- Tags -->
 <div style="clear:left">
-<label for="book_nested_tag_ids">Schlagwort auswählen</label>
+<label for="book_nested_tag_ids"><%= I18n.t("sb.forms.labels.book_select_tags") %></label>
 	<%= partial "shared/tag_selection" %>
-	<span class="help-block"><em>Zur Mehrfachwauswahl bitte die Taste 'Strg/Ctrl' (Win) oder 'Cmd' (Mac) beim Auswählen gedrückt halten.</em></span>
+	<span class="help-block"><em><%= I18n.t("sb.forms.hints.book_multiple_tag_select") %></em></span>
 	<%# Set selected tag on client because partial is cached %>
 	<%= hidden_field_tag "tag_id",book.nested_tags.size > 0 ? book.nested_tags[0].id : 0%>
 	<script type="text/javascript" charset="utf-8">
@@ -35,7 +35,7 @@
 
 <!-- Authors -->
 <div class="section border">
-	<h2>Autoren</h2>
+	<h2><%= I18n.t("sb.forms.headers.authors") %></h2>
 	<% if @book.errors && @book.errors.messages[:authors] %>
 		<div class="control-group error">
 			<label><%= @book.errors.messages[:authors][0] %></label>
@@ -43,7 +43,8 @@
 	<% end %>
 	<div class="row">
 		<div class="span0"><%= f.check_box :publisher_is_author %></div>
-		<div class="span5"><%= f.label :publisher_is_author, "Autor entspricht Herausgeber / Verlag" %></div>
+		<div class="span5"><%= f.label :publisher_is_author, 
+			I18n.t("sb.forms.labels.book_publisher_is_author") %></div>
 	</div>
 	<div id="authors">
 	<%= f.simple_fields_for :authors do |builder| %>
@@ -53,13 +54,14 @@
 	<div id="new_author_fields" style="display: none">
 		<%= add_new_author_fields(f, :authors) %>
 	</div>
-	<div><%= link_to_function("Neuen Autor hinzufügen", "addNewAuthor(this)", {:class => "btn btn-primary"} ) %></div>
+	<div><%= link_to_function(I18n.t("sb.forms.buttons.add_new_author"), 
+		"addNewAuthor(this)", {:class => "btn btn-primary"} ) %></div>
 </div>
 
 <!-- Location -->
 <div class="section border">
-	<%= f.input :abstract, :label => "Zusammenfassung / Abstract", :input_html => {:style => "width: 400px;", :rows => 10} %>
-	<%= f.input :location, :label => "Aktueller Standort", :input_html => {:style => "width: 400px;"	, :rows => 10} %>
+	<%= f.input :abstract, :label => I18n.t("sb.forms.labels.book_abstract"), :input_html => {:style => "width: 400px;", :rows => 10} %>
+	<%= f.input :location, :label => I18n.t("sb.forms.labels.book_location"), :input_html => {:style => "width: 400px;"	, :rows => 10} %>
 </div>
 
 <!-- Upload -->
@@ -70,7 +72,7 @@
 		</div>
 	<% end %>
 	<% if !book.new_record? && book.document.file? %>
-	<h4>Vorhandene Datei ersetzen oder löschen</h4>
+	<h4><%= I18n.t("sb.forms.headers.update_attachment") %></h4>
 		<div style="float:left;margin-right:10px"><%= image_tag("icons/file_pdf.png") %></div>
 		<div>
 			<%= book.document.original_filename %>&#160;
@@ -82,8 +84,9 @@
 			<% end %>
 		</div>
 	<% else %>
-		<h4>Datei anhängen</h4>
+		<h4><%= I18n.t("sb.forms.headers.add_attachment") %></h4>
 	<% end %>
-	<%= f.file_field :document, :label => "Datei auswählen ...", :style => "height:24px" %>
-	<span class="help-block"><em>Mögliche Dateitypen: PDF</em></span>
+	<%= f.file_field :document, :label => I18n.t("sb.forms.labels.book_attachment"), 
+		:style => "height:24px" %>
+	<span class="help-block"><em><%= I18n.t("sb.forms.hints.book_attachment_type") %></em></span>
 </div>

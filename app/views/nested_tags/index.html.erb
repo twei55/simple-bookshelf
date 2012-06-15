@@ -1,34 +1,41 @@
 <div id="new-keyword-form" class="section">
-<h2>Schlagwort anlegen</h2>
+<h2><%= I18n.t("sb.headers.new_tag") %></h2>
 <%= simple_form_for(@nested_tag, :url => keywords_path) do |f| %>
-	<%= f.select :parent_id, NestedTag.root.collect {|tag|[tag.name,tag.id]}, 
-		{:label => "Oberkategorie auswählen", :hint => "Wird keine Oberkategorie ausgewählt, so wird eine neue angelegt.", :include_blank => "Bitte auswählen"}
+	<label for="nested_tag_parent_id"><%= I18n.t("sb.forms.labels.tag_select_parent") %></label>
+	<%= f.select :parent_id, NestedTag.root.collect {|tag|[tag.name,tag.id]}, {
+			:include_blank => I18n.t("sb.forms.select.blank_option")
+		}
 	%>
-	<%= f.input :name, {:label => "Schlagwort anlegen", :hint => "Das neue Schlagwort wird der gewählten Oberkategorie zugeordnet."} %>
-	<%= f.submit "Schlagwort hinzufügen", {:class => "btn btn-primary"} %>
+	<%= f.input :name, {
+		:label => I18n.t("sb.forms.labels.tag_name"),
+		:hint => I18n.t("sb.forms.hints.tag_root_category")
+	} %>
+	<%= f.submit I18n.t("sb.forms.buttons.create_tag"), {:class => "btn btn-primary"} %>
 <% end %>
 </div>
 <div id="update-keyword-form" class="section border">
-<h2>Schlagwort ändern</h2>
+
+<h2><%= I18n.t("sb.headers.update_tag") %></h2>
 <%= form_tag("keywords/1", :method => :put) do |f| %>
 	<div>
-		<label for="nested_tag_id">Schlagwort auswählen</label>
+		<label for="nested_tag_id"><%= I18n.t("sb.forms.labels.tag_select_tag") %></label>
 		<%= partial "shared/tag_selection" %>
 	</div>
 	<div>
-		<%= label_tag :name, "Neue Bezeichnung" %>
+		<%= label_tag :name, I18n.t("sb.forms.labels.tag_update_name") %>
 		<%= text_field :nested_tag, :name %>
 	</div>
-	<%= submit_tag "Schlagwort aktualisieren", {:class => "btn btn-primary"}%>
+	<%= submit_tag I18n.t("sb.forms.buttons.update_tag"), {:class => "btn btn-primary"}%>
 <% end %>
 </div>
 <div id="delete-keyword-form" class="section border">
-<h2>Schlagwort löschen</h2>
+
+<h2><%= I18n.t("sb.headers.delete_tag") %></h2>
 <%= form_tag("keywords/1", :method => :delete) do |f| %>
 	<div style="margin-bottom:10px;">
-		<label for="nested_tag_id">Schlagwort auswählen</label>
+		<label for="nested_tag_id"><%= I18n.t("sb.forms.labels.tag_select_tag") %></label>
 		<%= partial "shared/tag_selection" %>
 	</div>
-	<%= submit_tag "Schlagwort löschen", {:class => "btn btn-primary"}%>
+	<%= submit_tag I18n.t("sb.forms.buttons.delete_tag"), {:class => "btn btn-primary"}%>
 <% end %>
 </div>

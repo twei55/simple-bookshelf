@@ -1,4 +1,4 @@
 <% cache(:action => "new", :action_suffix => 'tag_in_use_selection') do %>
-	<label for="book_nested_tags">Ergebnis nach Schlagwort filtern:</label>
+	<label for="book_nested_tags"><%= I18n.t("sb.forms.labels.search.filter_by_tag") %></label>
 	<%= tree_select(NestedTag.root, "book", "tag", -1, "0", {:multiple => false, :filter_unused => true})%>
 <% end %>

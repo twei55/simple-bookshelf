@@ -1,32 +1,32 @@
 <ul class="nav nav-pills pull-right">
 <% if user_signed_in? or admin_signed_in? %>
 	<li class="<%= 'active' if current_page?(books_path) || current_page?(root_path) %>">
-		<%= link_to "Suche", books_path %>
+		<%= link_to I18n.t("sb.navigation.main.search"), books_path %>
 	</li>
 	<% if admin_signed_in? -%>
 		<li class="<%= 'active' if current_page?(new_book_path) %>">
-			<%= link_to "Titel anlegen", new_book_path %>
+			<%= link_to I18n.t("sb.navigation.main.new_book"), new_book_path %>
 		</li>
 		<li class="<%= 'active' if current_page?(keywords_path) %>">
-			<%= link_to "Schlagwörter", keywords_path %>
+			<%= link_to I18n.t("sb.navigation.main.tags"), keywords_path %>
 		</li>
 		<li class="<%= 'active' if current_page?(formats_path) %>">
-			<%= link_to "Publikationsarten", formats_path %>
+			<%= link_to I18n.t("sb.navigation.main.formats"), formats_path %>
 		</li>
 	<% end -%>
 	<li>
 		<% if user_signed_in? %>
-			<%= link_to("Ausloggen", destroy_user_session_path) %>
+			<%= link_to(I18n.t("sb.navigation.main.logout"), destroy_user_session_path) %>
 		<% elsif admin_signed_in? %>
-			<%= link_to("Ausloggen", destroy_admin_session_path) %>
+			<%= link_to(I18n.t("sb.navigation.main.logout"), destroy_admin_session_path) %>
 		<% end %>
 	</li>
 <% else %>
   <li class="<%= 'active' if current_page?(new_user_session_path) %>">
-  	<%= link_to "Einloggen", new_user_session_path, {:title => "Einloggen"} %>
+  	<%= link_to I18n.t("sb.navigation.main.login"), new_user_session_path, {:title => "Einloggen"} %>
   </li>
 	<li class="<%= 'active' if current_page?(new_admin_session_path) %>">
-  	<%= link_to "Administration", new_admin_session_path, {:title => "Administration"} %>
+  	<%= link_to I18n.t("sb.navigation.main.administration"), new_admin_session_path, {:title => "Administration"} %>
   </li>
 <% end -%>
 </ul>

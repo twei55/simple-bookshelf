@@ -1,11 +1,13 @@
-<h2>Ergebnisliste
-	<span class="total_entries">(<%= @books.total_entries.to_s%> Titel gefunden)</span>
+<h2><%= I18n.t("sb.headers.book_list") %>
+	<span class="total_entries">
+		(<%= t('sb.headers.book_total_entries', :count => @books.total_entries) %>)
+	</span>
 </h2>
 <%= partial "search", :current_tag_id => @current_tag_id %>
 <%= partial "list", :books => @books %>
 <%= will_paginate @books, 
-	:previous_label => I18n.t("will_paginate.previous_label"), 
-	:next_label => I18n.t("will_paginate.next_label"),
+	:previous_label => I18n.t("sb.will_paginate.previous_label"), 
+	:next_label => I18n.t("sb.will_paginate.next_label"),
 	:class => "pagination pagination-centered"
 %>
 <%= @params %>

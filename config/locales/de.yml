@@ -204,7 +204,3 @@ de:
   activerecord:
     errors:
       <<: *errors
-  will_paginate:
-    previous_label: Zurück
-    next_label: Weiter
-    page_gap: ...

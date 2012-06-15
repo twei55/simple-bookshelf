@@ -14,9 +14,9 @@ class NestedTagsController < ApplicationController
     @nested_tag = NestedTag.new(params[:nested_tag])
     @nested_tag.parent_id = 0 if params[:nested_tag][:parent_id].blank?
     if (@nested_tag.save)
-      flash[:notice] = "Neues Schlagwort wurde angelegt."
+      flash[:notice] = I18n.t("sb.flash.notices.create_tag_success")
     else
-      flash[:notice] = "Neues Schlagwort konnte nicht angelegt werden."
+      flash[:notice] = I18n.t("sb.flash.errors.create_tag_error")
     end
     
     redirect_to keywords_path
@@ -26,9 +26,9 @@ class NestedTagsController < ApplicationController
     if (params[:book] && params[:book][:nested_tag_ids])
       @nt = NestedTag.find(params[:book][:nested_tag_ids][0])
       @nt.update_attributes(params[:nested_tag])
-      flash[:notice] = "Schlagwort wurde aktualisiert."
+      flash[:notice] = I18n.t("sb.flash.notices.update_tag_success")
     else
-      flash[:notice] = "Schlagwort konnte nicht aktualisiert werden."
+      flash[:notice] = I18n.t("sb.flash.errors.update_tag_error")
     end
 
     redirect_to keywords_path
@@ -38,9 +38,9 @@ class NestedTagsController < ApplicationController
     if (params[:book] && params[:book][:nested_tag_ids])
       @nt = NestedTag.find(params[:book][:nested_tag_ids][0])
       @nt.destroy
-      flash[:notice] = "Schlagwort(e) wurde gelöscht."
+      flash[:notice] = I18n.t("sb.flash.notices.delete_tag_success")
     else
-      flash[:notice] = "Schlagwort(e) konnte nicht gelöscht werden."
+      flash[:notice] = I18n.t("sb.flash.errors.delete_tag_error")
     end
 
     redirect_to keywords_path

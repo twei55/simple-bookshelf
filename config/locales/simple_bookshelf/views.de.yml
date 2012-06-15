@@ -1,0 +1,102 @@
+# encoding: utf-8
+de:
+  sb:
+    forms:
+      labels:
+        author_first_name: "Vorname"
+        author_last_name: "Nachname"
+        book_title: "Titel"
+        book_year: "Erscheinungsjahr"
+        book_publisher: "Herausgebende Institution / Verlag"
+        book_select_tags: "Schlagwörter auswählen"
+        book_select_formats: "Publikationsart(en) auswählen"
+        book_publisher_is_author: "Autor entspricht Herausgeber / Verlag"
+        book_abstract: "Zusammenfassung / Abstract"
+        book_location: "Aktueller Standort"
+        book_attachment: "Datei auswählen ..."
+        format_name: "Bezeichnung"
+        format_update_name: "Neue Bezeichnung"
+        format_select_format: "Publikationsart auswählen"
+        tag_name: "Bezeichung"
+        tag_update_name: "Neue Bezeichung"
+        tag_select_tag: "Schlagwort auswählen"
+        tag_select_parent: "Übergeordnetes Schlagwort auswählen"
+        search:
+          search_for: Suche nach
+          choice_title: "Titelstichwort"
+          choice_author: "Autor"
+          choice_publisher: "Herausgeber"
+          filter_by_format: "Ergebnis nach Art der Publikation filtern"
+          filter_by_tag: "Ergebnis nach Schlagwort filtern"
+      hints:
+        book_multiple_tag_select: "Zur Mehrfachwauswahl bitte die Taste 'Strg/Ctrl' (Win) oder 'Cmd' (Mac) beim Auswählen gedrückt halten."
+        book_attachment_type: "Mögliche Dateitypen: PDF"
+        tag_root_category: "Das neue Schlagwort wird dem übergeordneten Schlagwort zugeordnet. Ohne Auswahl wird ein übergeordnetes Schlagwort erzeugt."
+      headers:
+        authors: "Autoren"
+        add_attachment: "Datei anhängen"
+        update_attachment: "Vorhandene Datei ersetzen oder löschen"
+      buttons:
+        add_new_author: "Neuen Autor hinzufügen"
+        delete_author: "Autor löschen"
+        create_book: "Titel speichern"
+        update_book: "Titel aktualisieren"
+        create_format: "Hinzufügen"
+        update_format: "Aktualisieren"
+        delete_format: "Löschen"
+        create_tag: "Hinzufügen"
+        update_tag: "Aktualisieren"
+        delete_tag: "Löschen"
+        edit_book: "Titel bearbeiten"
+        delete_book: "Titel löschen"
+      select:
+        blank_option: "--- Bitte wählen ---"
+    headers:
+      book_list: "Ergebnisliste"
+      book_total_entries:
+        one: "1 Titel gefunden"
+        other: "%{count} Titel gefunden"
+      new_book: "Neuen Titel anlegen"
+      edit_book: "Titel bearbeiten"
+      book_updated_at: "Letzte Änderung"
+      new_format: "Neue Publikationsart anlegen"
+      update_format: "Publikationsart ändern"
+      delete_format: "Publikationsart löschen"
+      new_tag: "Neues Schlagwort anlegen"
+      update_tag: "Schlagwort aktualisieren"
+      delete_tag: "Schlagwort löschen"
+    navigation:
+      main:
+        search: "Suche"
+        new_book: "Titel anlegen"
+        formats: "Publikationsarten"
+        tags: "Schlagwörter"
+        logout: "Ausloggen"
+        login: "Einloggen"
+        administration: "Administration"
+    tables:
+      headers:
+        author: "Autor"
+        book_title: "Titel"
+        book_year: "Jahr"
+        book_publisher: "Herausgeber"
+      no_results: "Keine Titel gefunden"
+    links:
+      titles:
+        sort_by_author: "Nach Autor sortieren"
+        sort_by_title: "Nach Titel sortieren"
+        sort_by_year: "Nach Jahr sortieren"
+        sort_by_publisher: "Nach Herausgeber sortieren"
+        show_details: "Details anzeigen"
+        edit_book: "Titel bearbeiten"
+        delete_book: "Titel löschen"
+        book_attachment: "Anhang"
+      confirms:
+        delete_book: "Willst Du diesen Titel wirklich löschen?"
+    buttons:
+      search: "Suche"
+    will_paginate:
+      previous_label: Zurück
+      next_label: Weiter
+      page_gap: ...
+

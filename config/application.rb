@@ -40,6 +40,8 @@ module SimpleBookshelf
     config.filter_parameters += [:password]
 
     config.i18n.default_locale = :de
+    # Load locale files in nested dictionaries
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     config.assets.enabled = false
   end

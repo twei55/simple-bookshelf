@@ -27,15 +27,8 @@
 	<%# Set selected tag on client because partial is cached %>
 	<%= hidden_field_tag "tag_id",book.nested_tags.size > 0 ? book.nested_tags[0].id : 0%>
 	<script type="text/javascript" charset="utf-8">
-		document.observe('dom:loaded',function(event) {
-			$('book_nested_tag_ids').childElements().each(function(o) {
-			  if (parseInt(o.value) == parseInt($F('tag_id'))) {
-					o.selected = "selected";
-				}
-				else {
-					o.selected = "";
-				}
-			});
+		$(document).ready(function() {
+			$('select#book_nested_tag_ids').val(parseInt($('#tag_id').val()));
 		});
 	</script>
 </div>

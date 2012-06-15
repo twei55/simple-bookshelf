@@ -21,20 +21,14 @@
 			</div>
 			<div class="span3">
 				<%= partial "tag_in_use_selection"%>
-				<%# Set selected tag on client because partial is cached %>
+				<%
+				# Set selected tag on client because partial is cached 
+				%>
 				<script type="text/javascript" charset="utf-8">
-					document.observe('dom:loaded',function(event) {
-						console.log("Loaded");
-						$('book_tag').childElements().each(function(o) {
-						  if (parseInt(o.value) == parseInt(window.location.href.parseQuery()["book[tag]"])) {
-								o.selected = "selected";
-							}
-						});
-						$('book_format').childElements().each(function(o) {
-						  if (parseInt(o.value) == parseInt(window.location.href.parseQuery()["book[format]"])) {
-								o.selected = "selected";
-							}
-						});
+					$(document).ready(function() {
+						uri = URI(window.location.href).query(true);
+						$('select#book_tag').val(parseInt(uri['book[tag]']));
+						$('select#book_format').val(parseInt(uri['book[format]']));
 					});
 				</script>
 			</div>

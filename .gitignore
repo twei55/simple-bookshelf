@@ -7,7 +7,7 @@ config/deploy.rb
 db/sphinx/*
 db/dumps/*
 db/*.sqlite3
-docs/todos/*
+doc/todos/*
 log/*
 public/images/templates/*
 public/system/*

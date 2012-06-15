@@ -16,7 +16,7 @@ class NestedTagsController < ApplicationController
     if (@nested_tag.save)
       flash[:notice] = I18n.t("sb.flash.notices.create_tag_success")
     else
-      flash[:notice] = I18n.t("sb.flash.errors.create_tag_error")
+      flash[:error] = I18n.t("sb.flash.errors.create_tag_error")
     end
     
     redirect_to keywords_path
@@ -28,7 +28,7 @@ class NestedTagsController < ApplicationController
       @nt.update_attributes(params[:nested_tag])
       flash[:notice] = I18n.t("sb.flash.notices.update_tag_success")
     else
-      flash[:notice] = I18n.t("sb.flash.errors.update_tag_error")
+      flash[:error] = I18n.t("sb.flash.errors.update_tag_error")
     end
 
     redirect_to keywords_path
@@ -40,7 +40,7 @@ class NestedTagsController < ApplicationController
       @nt.destroy
       flash[:notice] = I18n.t("sb.flash.notices.delete_tag_success")
     else
-      flash[:notice] = I18n.t("sb.flash.errors.delete_tag_error")
+      flash[:error] = I18n.t("sb.flash.errors.delete_tag_error")
     end
 
     redirect_to keywords_path

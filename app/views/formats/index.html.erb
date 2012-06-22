@@ -9,7 +9,7 @@
 </div>
 <div id="update-format-form" class="section border">
 <h2><%= I18n.t("sb.headers.update_format") %></h2>
-<%= form_tag('/formats/1', :method => :put) do |f| %>
+<%= form_tag(format_path(1), :method => :put) do |f| %>
 	<div>
 		<%= label_tag "format-id-update", I18n.t("sb.forms.labels.format_select_format") %>
 		<%= select(:format, :id, Format.all.collect {|fm| [fm.name,fm.id]}, 
@@ -24,7 +24,7 @@
 </div>
 <div id="delete-format-form" class="section border">
 <h2><%= I18n.t("sb.headers.delete_format") %></h2>
-<%= form_tag('/formats/1', :method => :delete) do |f| %>
+<%= form_tag(format_path(1), :method => :delete) do |f| %>
 	<div style="margin-bottom:10px;">
 		<%= label_tag "format-id-delete", I18n.t("sb.forms.labels.format_select_format")  %>
 		<%= select(:format, :id, Format.all.collect {|fm| [fm.name,fm.id]}, 

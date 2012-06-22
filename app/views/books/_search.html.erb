@@ -1,8 +1,11 @@
 <div class="grid_16 alpha">
 <%= form_tag(books_path, {:class => "form", :method => :get}) do %>
 	<div id="search">
-		<div id="free_query"><%= text_field_tag "query", params[:query] || "" %>
-			<%= submit_tag I18n.t("sb.buttons.search"), :class => "btn btn-primary" %></div>
+		<div id="free_query">
+			<%= text_field_tag "query", params[:query] || "" %>
+			<%= hidden_field_tag "locale", params[:locale] || I18n.default_locale %>
+			<%= submit_tag I18n.t("sb.buttons.search"), :class => "btn btn-primary" %>
+		</div>
 		<div class="row filters">
 			<div class="span4">
 				<label for="query"><%= I18n.t("sb.forms.labels.search.search_for") %></label>

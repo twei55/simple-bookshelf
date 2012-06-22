@@ -16,7 +16,7 @@
 <div id="update-keyword-form" class="section border">
 
 <h2><%= I18n.t("sb.headers.update_tag") %></h2>
-<%= form_tag("keywords/1", :method => :put) do |f| %>
+<%= form_tag(keyword_path(1), :method => :put) do |f| %>
 	<div>
 		<label for="nested_tag_id"><%= I18n.t("sb.forms.labels.tag_select_tag") %></label>
 		<%= partial "shared/tag_selection" %>
@@ -31,7 +31,7 @@
 <div id="delete-keyword-form" class="section border">
 
 <h2><%= I18n.t("sb.headers.delete_tag") %></h2>
-<%= form_tag("keywords/1", :method => :delete) do |f| %>
+<%= form_tag(keyword_path(1), :method => :delete) do |f| %>
 	<div style="margin-bottom:10px;">
 		<label for="nested_tag_id"><%= I18n.t("sb.forms.labels.tag_select_tag") %></label>
 		<%= partial "shared/tag_selection" %>

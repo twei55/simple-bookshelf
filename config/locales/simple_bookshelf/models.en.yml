@@ -1,0 +1,14 @@
+# encoding: utf-8
+
+en:
+  sb:
+    book:
+      validations:
+        title_missing: "Please enter a title"
+        publisher_missing: "Please enter a publisher"
+        year_missing: "Please enter a year of publication"
+        author_missing: "Please provide at least one author"
+        attachment_content_type: "The attached file should be of type .pdf"
+    author:
+      validations:
+        last_name_missing: "Please enter a last name"

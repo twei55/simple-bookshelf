@@ -3,6 +3,22 @@ en:
   sb:
     flash:
       notices:
-        add_format_success: "Neue Publikationsart wurde angelegt."
+        create_format_success: "Added new publication type successfully."
+        update_format_success: "Updated publication type successfully."
+        delete_format_success: "Deleted publication type successfully."
+        create_tag_success: "Added new keyword successfully."
+        update_tag_success: "Updated keyword successfully."
+        delete_tag_success: "Deleted keyword successfully"
+        create_book_success: "Added new title successfully."
+        update_book_success: "Updated title successfully."
+        delete_book_success: "Deleted title successfully."
+        delete_attachment_success: "Deleted attachment successfully."
       errors:
-        add_format_error: "Neues Publikationsart konnte nicht angelegt werden. Entweder sie haben keinen Namen eingegeben oder eine Publikationsart mit gleichem Namen existiert bereits."
+        create_format_error: "New publication type could not be created."
+        update_format_error: "Publication type could not be updated."
+        delete_format_error: "Publication type could not be deleted."
+        create_tag_error: "New keyword could not be created."
+        update_tag_error: "Keyword could not be updated."
+        delete_tag_error: "Keyword could not be deleted."
+        create_book_error: "An error occurred. Title could not be created."
+        update_book_error: "An error occurred. Title could not be updated."

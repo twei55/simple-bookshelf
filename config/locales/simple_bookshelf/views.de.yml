@@ -22,14 +22,14 @@ de:
         tag_select_tag: "Schlagwort auswählen"
         tag_select_parent: "Übergeordnetes Schlagwort auswählen"
         search:
-          search_for: Suche nach
+          search_for: "Suche nach"
           choice_title: "Titelstichwort"
           choice_author: "Autor"
           choice_publisher: "Herausgeber"
           filter_by_format: "Ergebnis nach Art der Publikation filtern"
           filter_by_tag: "Ergebnis nach Schlagwort filtern"
       hints:
-        book_multiple_tag_select: "Zur Mehrfachwauswahl bitte die Taste 'Strg/Ctrl' (Win) oder 'Cmd' (Mac) beim Auswählen gedrückt halten."
+        book_multiple_tag_select: "Zur Mehrfachauswahl bitte die Taste 'Strg/Ctrl' (Win) oder 'Cmd' (Mac) beim Auswählen gedrückt halten."
         book_attachment_type: "Mögliche Dateitypen: PDF"
         tag_root_category: "Das neue Schlagwort wird dem übergeordneten Schlagwort zugeordnet. Ohne Auswahl wird ein übergeordnetes Schlagwort erzeugt."
       headers:

@@ -1,5 +1,102 @@
 # encoding: utf-8
 en:
   sb:
+    forms:
+      labels:
+        author_first_name: "First name"
+        author_last_name: "Last name"
+        book_title: "Title"
+        book_year: "Year of publication"
+        book_publisher: "Editor / Publisher"
+        book_select_tags: "Select keyword(s)"
+        book_select_formats: "Select type(s) of publication"
+        book_publisher_is_author: "Author is equivalent to publisher"
+        book_abstract: "Resumé / Abstract"
+        book_location: "Current location"
+        book_attachment: "Select file ..."
+        format_name: "Name"
+        format_update_name: "New name"
+        format_select_format: "Select publication type"
+        tag_name: "Name"
+        tag_update_name: "New Name"
+        tag_select_tag: "Select keyword"
+        tag_select_parent: "Select superordinated keyword"
+        search:
+          search_for: "Search for"
+          choice_title: "Title"
+          choice_author: "Author"
+          choice_publisher: "Publisher"
+          filter_by_format: "Filter result by publication type"
+          filter_by_tag: "Filter result by keyword"
+      hints:
+        book_multiple_tag_select: "Choose more than one keyword by holding 'Strg/Ctrl' (Win) oder 'Cmd' (Mac)."
+        book_attachment_type: "Allowed file types: PDF"
+        tag_root_category: "The new keyword will be assigned to the selected superordinated keyword. If no superordinated keyword is selected, the new one will be superordinated."
+      headers:
+        authors: "Authors"
+        add_attachment: "Attach file"
+        update_attachment: "Replace or delete existing file"
+      buttons:
+        add_new_author: "Add new author"
+        delete_author: "Delete author"
+        create_book: "Save title"
+        update_book: "Update title"
+        create_format: "Add"
+        update_format: "Update"
+        delete_format: "Delete"
+        create_tag: "Add"
+        update_tag: "Update"
+        delete_tag: "Delete"
+        edit_book: "Edit title"
+        delete_book: "Delete title"
+      select:
+        blank_option: "--- Please select ---"
     headers:
-      book_list: "Resultlist"
+      book_list: "Results"
+      book_total_entries:
+        one: "1 title found"
+        other: "%{count} titles found"
+      new_book: "Create new title"
+      edit_book: "Edit title"
+      book_updated_at: "Last update"
+      new_format: "Create new publication type"
+      update_format: "Update publication type"
+      delete_format: "Delete publication type"
+      new_tag: "Create new keyword"
+      update_tag: "Update keyword"
+      delete_tag: "Delete keyword"
+    navigation:
+      main:
+        search: "Search"
+        new_book: "Add title"
+        formats: "Publication types"
+        tags: "Keywords"
+        logout: "Sign out"
+        login: "Sign in"
+        administration: "Administration"
+    tables:
+      headers:
+        author: "Author"
+        book_title: "Title"
+        book_year: "Year"
+        book_publisher: "Publisher"
+      books_no_results: "No titles found"
+    links:
+      titles:
+        sort_by_author: "Sort by author"
+        sort_by_title: "Sort by title"
+        sort_by_year: "Sort by year"
+        sort_by_publisher: "Sort by publisher"
+        show_details: "Show details"
+        edit_book: "Edit title"
+        delete_book: "Delete title"
+        book_attachment: "Attachment"
+      confirms:
+        delete_book: "Do you really want to delete this title?"
+    buttons:
+      search: "Search"
+    will_paginate:
+      previous_label: Previous
+      next_label: Next
+      page_gap: ...
+

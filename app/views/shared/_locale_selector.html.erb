@@ -1,0 +1,7 @@
+<div id="locales">
+	<ul>
+		<% I18n.available_locales.each do |locale| -%>
+		<li><%= link_to locale, request.parameters.merge({:locale => locale}), :class => locale %></li>
+		<% end -%>
+	</ul>
+</div>

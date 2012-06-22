@@ -23,15 +23,16 @@ div#header {
 	border-bottom:1px solid #AAA;
 }
 
-div#header div#logo {
-	padding:20px 0 0;
+div#header img#logo {
+	position: relative;
+	top:-11px;
 }
 
 /* Navigation */
 
 div#nav {
 	float: right;
-	margin-top: 75px;
+	margin-top: 65px;
 }
 
 div#nav ul.nav {
@@ -41,6 +42,35 @@ div#nav ul.nav {
 
 div#nav ul.nav li {
 	display: inline;
+}
+
+/* Locale selector */
+
+div#locales {
+	position:relative;
+	left:95%;
+	top:10px;
+	height:11px;
+}
+
+div#locales ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+div#locales ul li a {
+	width: 16px;
+	height: 11px;
+	float: left;
+	text-indent:-16px;
+	overflow:hidden;
+	margin:0 0 0 5px;
+}
+div#locales ul li a.de {
+	background: url(/images/icons/locales/de.png) 0px 0px no-repeat;
+}
+div#locales ul li a.en {
+	background: url(/images/icons/locales/gb.png) 0px 0px no-repeat;
 }
 
 p.alert, p.notice {

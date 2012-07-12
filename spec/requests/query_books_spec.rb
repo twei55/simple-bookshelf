@@ -3,22 +3,17 @@ require 'spec_helper'
 
 describe "query" do
 
-	let(:admin) { FactoryGirl.create(:admin) }
-	let(:user) { FactoryGirl.create(:user) }
+	let(:admin) { FactoryGirl.create(:admin, :group => Group.first) }
+	let(:user) { FactoryGirl.create(:user, :group => Group.first) }
 
 	before(:each) do
-    visit new_admin_session_path
-		fill_in("admin_email", :with => admin.email)
-		fill_in("admin_password", :with => admin.password)
+    visit new_user_session_path
+		fill_in("user_email", :with => admin.email)
+		fill_in("user_password", :with => admin.password)
 		click_button("Einloggen")
   end
 
 	it "performs some queries" do
-		visit new_user_session_path
-		fill_in("user_email", :with => user.email)
-		fill_in("user_password", :with => user.password)
-		click_button("Einloggen")
-
 		fill_in("query", :with => "Uwe Timm")
 		click_button("Suche")
 

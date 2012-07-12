@@ -51,6 +51,7 @@ div#locales {
 	left:95%;
 	top:10px;
 	height:11px;
+	width:100px;
 }
 
 div#locales ul {
@@ -179,4 +180,10 @@ div#similar_books ul li {
 
 div#similar_books ul li a {
 	color:#333;
+}
+
+/* Form */
+
+form#new_user h4 {
+	margin:10px 0;
 }

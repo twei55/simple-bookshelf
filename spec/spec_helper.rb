@@ -81,16 +81,20 @@ def create_dummy_data
   
   tag2 = FactoryGirl.create(:tag2, :children => [tag6, tag7, tag8])
 
+  # Create a group
+  group1 = FactoryGirl.create(:group1)
+  group2 = FactoryGirl.create(:group2)
+
   # Create some books
-  FactoryGirl.create(:book0, :authors => [gibson], :formats => [roman], :nested_tags => [tag1])
-  FactoryGirl.create(:book1, :authors => [gibson], :formats => [roman], :nested_tags => [tag1, tag2])
-  FactoryGirl.create(:book2, :authors => [timm], :formats => [studie], :nested_tags => [tag2])
-  FactoryGirl.create(:book3, :authors => [timm], :formats => [studie], :nested_tags => [tag3])
-  FactoryGirl.create(:book4, :authors => [rowohlt], :formats => [dossier], :nested_tags => [tag4])
-  FactoryGirl.create(:book5, :authors => [haruki], :formats => [dossier], :nested_tags => [tag1, tag5])
-  FactoryGirl.create(:book6, :authors => [haruki], :formats => [gesetz], :nested_tags => [tag5])
-  FactoryGirl.create(:book7, :authors => [haruki], :formats => [gesetz], :nested_tags => [tag3])
-  FactoryGirl.create(:book8, :authors => [meier], :formats => [roman], :nested_tags => [tag3])
-  FactoryGirl.create(:book9, :authors => [meier], :formats => [roman], :nested_tags => [tag3])
+  FactoryGirl.create(:book0, :authors => [gibson], :formats => [roman], :nested_tags => [tag1], :groups => [group1])
+  FactoryGirl.create(:book1, :authors => [gibson], :formats => [roman], :nested_tags => [tag1, tag2], :groups => [group1])
+  FactoryGirl.create(:book2, :authors => [timm], :formats => [studie], :nested_tags => [tag2], :groups => [group1])
+  FactoryGirl.create(:book3, :authors => [timm], :formats => [studie], :nested_tags => [tag3], :groups => [group1])
+  FactoryGirl.create(:book4, :authors => [rowohlt], :formats => [dossier], :nested_tags => [tag4], :groups => [group1])
+  FactoryGirl.create(:book5, :authors => [haruki], :formats => [dossier], :nested_tags => [tag1, tag5], :groups => [group1])
+  FactoryGirl.create(:book6, :authors => [haruki], :formats => [gesetz], :nested_tags => [tag5], :groups => [group1])
+  FactoryGirl.create(:book7, :authors => [haruki], :formats => [gesetz], :nested_tags => [tag3], :groups => [group1])
+  FactoryGirl.create(:book8, :authors => [meier], :formats => [roman], :nested_tags => [tag3], :groups => [group1])
+  FactoryGirl.create(:book9, :authors => [meier], :formats => [roman], :nested_tags => [tag3], :groups => [group1])
 
 end

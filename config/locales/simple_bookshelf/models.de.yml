@@ -12,3 +12,6 @@ de:
     author:
       validations:
         last_name_missing: "Bitte gebe einen Nachnamen an"
+    user:
+      validations:
+        group_missing: "Bitte wähle eine Gruppe oder lege eine neue an"

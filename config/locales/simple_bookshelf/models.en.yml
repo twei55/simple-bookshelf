@@ -12,3 +12,6 @@ en:
     author:
       validations:
         last_name_missing: "Please enter a last name"
+    user:
+      validations:
+        group_missing: "Please select a group or enter a new one"

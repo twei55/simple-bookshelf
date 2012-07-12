@@ -17,6 +17,9 @@ de:
         format_name: "Bezeichnung"
         format_update_name: "Neue Bezeichnung"
         format_select_format: "Publikationsart auswählen"
+        user_add_group: "... oder neue Gruppe anlegen"
+        user_group_name: "Name der Gruppe"
+        user_select_group: "Gruppe auswählen"
         tag_name: "Bezeichung"
         tag_update_name: "Neue Bezeichung"
         tag_select_tag: "Schlagwort auswählen"
@@ -65,6 +68,7 @@ de:
       new_tag: "Neues Schlagwort anlegen"
       update_tag: "Schlagwort aktualisieren"
       delete_tag: "Schlagwort löschen"
+      sign_up_group: "Gruppe auswählen / anlegen"
     navigation:
       main:
         search: "Suche"

@@ -3,12 +3,12 @@
 class BooksController < ApplicationController
 
 	before_filter :authenticate_user_or_admin, :only => [:index, :show]
-	before_filter :authenticate_admin!, :only => [:new, :create, :edit, :update, :destroy]
+	before_filter :authenticate_admin, :only => [:new, :create, :edit, :update, :destroy]
 	before_filter :delete_tag_in_use_fragment, :only => [:create, :update, :destroy]
 	before_filter :delete_new_authors_from_params_hash, :only => [:create, :update]
 
 	def index
-		@books = Book.filter(params)
+		@books = Book.filter(params, current_person)
 		@current_tag_id = params[:book] ? params[:book][:tag].to_i : 0
 	end
 
@@ -23,6 +23,7 @@ class BooksController < ApplicationController
 
 	def create
 		@book = Book.new(params[:book])
+    @book.groups << current_user.group
 
 		if params[:book][:format_ids]
 			@book.formats << Format.find(params[:book][:format_ids])
@@ -121,7 +122,7 @@ class BooksController < ApplicationController
 	protected
 
 	def authenticate_user_or_admin
-		unless user_signed_in? or admin_signed_in?
+		unless user_signed_in?
 			redirect_to new_user_session_path 
 		end
 	end

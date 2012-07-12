@@ -2,6 +2,8 @@
 
 class FormatsController < ApplicationController
 
+  before_filter :authenticate_admin
+
 	def index
 		@format = Format.new
 	end

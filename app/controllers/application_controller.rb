@@ -11,4 +11,14 @@ class ApplicationController < ActionController::Base
 		{ :locale => I18n.locale }
 	end
 
+	def current_person
+		current_user || current_admin
+	end
+
+	def authenticate_admin
+    	unless user_signed_in? and current_user.admin?
+    	  	redirect_to new_user_session_path 
+    	end
+  	end
+	
 end

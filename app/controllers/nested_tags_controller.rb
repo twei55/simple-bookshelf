@@ -2,7 +2,7 @@
 
 class NestedTagsController < ApplicationController
 
-	before_filter :authenticate_admin!
+	before_filter :authenticate_admin
   before_filter :delete_tags_fragment, :only => [:create, :update,:destroy]
   before_filter :delete_tags_in_use_fragment, :only => [:update,:destroy]
 

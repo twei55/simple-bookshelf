@@ -3,7 +3,34 @@ require 'spec_helper'
 
 describe Book do
   
+  let(:user1) {
+    FactoryGirl.create(:user, :group => Group.first)
+  }
+  let(:user2) {
+    FactoryGirl.create(:user, :group => Group.last)
+  }
+
   describe '.filter' do
+
+    context "search" do
+
+      it "returns only books of the user´s group" do
+        params = {:query => "", 
+          :choices => {:author => "1", :title => "1", :publisher => "1"}
+        }
+        result = Book.filter(params, user1)
+        result.should have(10).item
+      end
+
+      it "does not return books when they don´t belong to the user´s group" do
+        params = {:query => "",
+          :choices => {:author => "1", :title => "1", :publisher => "1"}
+        }
+        result = Book.filter(params, user2)
+        result.should have(0).item
+      end
+
+    end
 
   	context "search for title, author, publisher" do
 
@@ -11,7 +38,7 @@ describe Book do
         params = {:query => "Gibson",
           :choices => {:author => "1", :title => "1", :publisher => "1"}
         }
-        result = Book.filter(params)
+        result = Book.filter(params, user1)
         result.should have(3).item
       end
 
@@ -24,7 +51,7 @@ describe Book do
           :choices => {:author => "1", :title => "1"},
           :book => {:format => "", :tag => ""}
         }
-        result = Book.filter(params)
+        result = Book.filter(params, user1)
         result.should have(2).item
       end
 
@@ -33,7 +60,7 @@ describe Book do
           :choices => {:author => "1", :title => "1"},
           :book => {:format => "", :tag => ""}
         }
-        result = Book.filter(params)
+        result = Book.filter(params, user1)
         result.should have(2).item
       end
 
@@ -45,7 +72,7 @@ describe Book do
         params = {:query => "dtv", 
           :choices => { :title => "1", :publisher => "1"}
         }
-        result = Book.filter(params)
+        result = Book.filter(params, user1)
         result.should have(2).item
       end
 
@@ -58,7 +85,7 @@ describe Book do
           :choices => {:author => "1", :publisher => "1"},
           :book => {:format => "", :tag => ""}
         }
-        result = Book.filter(params)
+        result = Book.filter(params, user1)
         result.should have(3).item
       end
 
@@ -72,7 +99,7 @@ describe Book do
           params = {:query => "Timm", 
             :choices => {:author => "1"}
           }
-          result = Book.filter(params)
+          result = Book.filter(params, user1)
           result.should have(2).item
         end
 
@@ -84,7 +111,7 @@ describe Book do
           params = {:query => "Uwe Timm", 
             :choices => {:author => "1"}
           }
-          result = Book.filter(params)
+          result = Book.filter(params, user1)
           result.should have(2).item
         end
 
@@ -96,7 +123,7 @@ describe Book do
           params = {:query => "Timm, Uwe",
             :choices => {:author => "1"}
           }
-          result = Book.filter(params)
+          result = Book.filter(params, user1)
           result.should have(2).item
         end
 
@@ -110,7 +137,7 @@ describe Book do
         params = {:query => "Suhrkamp", 
           :choices => {:publisher => "1"}
         }
-        result = Book.filter(params)
+        result = Book.filter(params, user1)
         result.should have(5).item
       end
 
@@ -122,7 +149,7 @@ describe Book do
         params = {:query => "Gibson", 
           :choices => {:title => "1"}
         }
-        result = Book.filter(params)
+        result = Book.filter(params, user1)
         result.should have(1).item
       end
 
@@ -134,7 +161,7 @@ describe Book do
         params = {:query => "", 
           :book => {:tag => NestedTag.find_by_name("Alleinerziehende").id}
         }
-        result = Book.filter(params)
+        result = Book.filter(params, user1)
         result.should have(3).item
       end
 
@@ -143,7 +170,7 @@ describe Book do
           :choices => {:title => "1"}, 
           :book => {:tag => NestedTag.find_by_name("Science").id}
         }
-        result = Book.filter(params)
+        result = Book.filter(params, user1)
         result.should have(1).item
       end
 
@@ -189,25 +216,25 @@ describe Book do
 
     it "adds tag_id field to condition hash" do
       params = {:query => "", :book => {:tag => "1"}}
-      conditions = Book.add_conditions(params)
+      conditions = Book.add_conditions(params, user1)
 
-      conditions.should have(1).item
+      conditions.should have(2).item
       conditions.should have_key(:tag_id)
     end
 
     it "adds format_id field to condition hash" do
       params = {:query => "", :book => {:format => "1"}}
-      conditions = Book.add_conditions(params)
+      conditions = Book.add_conditions(params, user1)
 
-      conditions.should have(1).item
+      conditions.should have(2).item
       conditions.should have_key(:format_id)
     end
 
     it "adds tag_id and format_id field to condition hash" do
       params = {:query => "", :book => {:tag => "1", :format => "1"}}
-      conditions = Book.add_conditions(params)
+      conditions = Book.add_conditions(params, user1)
 
-      conditions.should have(2).item
+      conditions.should have(3).items
     end
 
     
@@ -235,7 +262,7 @@ describe Book do
         book.valid?.should be_false
       end
 
-      it "makes sure entry is valid when publisher author" do
+      it "makes sure entry is valid when publisher is author" do
         params = {"book" => {
           "title" => "Test",
           "year" => "2010",

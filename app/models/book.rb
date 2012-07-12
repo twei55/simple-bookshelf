@@ -9,6 +9,9 @@ class Book < ActiveRecord::Base
   has_many :book_authors
   has_many :authors, :through => :book_authors
 
+  has_many :entries
+  has_many :groups, :through => :entries
+
   accepts_nested_attributes_for :authors, 
     :reject_if => :has_no_author_or_publisher?, :allow_destroy => true
   
@@ -69,6 +72,7 @@ class Book < ActiveRecord::Base
     indexes authors(:full_name_reversed), :as => :author_full_name_reversed, :sortable => true
   	indexes formats.id, :as => :format_id
   	indexes nested_tags.id, :as => :tag_id
+    indexes groups.id, :as => :group_id
 
     has year
 
@@ -85,11 +89,12 @@ class Book < ActiveRecord::Base
 
   class << self 
 
-    def add_conditions(params)
+    def add_conditions(params, user)
     	conditions = {}
     	conditions[:tag_id] = params[:book][:tag] if params[:book] && params[:book][:tag].present?
     	conditions[:format_id] = params[:book][:format] if params[:book] && params[:book][:format].present?
-      
+      conditions[:group_id] = user.group_id
+
     	return conditions
     end
 
@@ -107,7 +112,7 @@ class Book < ActiveRecord::Base
       fields.present? ? fields.join(" \"#{params[:query]}\" | ") + " \"#{params[:query]}\"" : params[:query]
     end
 
-    def filter(params)
+    def filter(params, user)
       result = Book.search(
                         build_query_string(params),
                         :page => params[:page] || 1,
@@ -115,7 +120,7 @@ class Book < ActiveRecord::Base
                         :sort_mode => params[:order] ? params[:order].to_sym : :asc,
                         :order => params[:sort] ? params[:sort].to_sym : :author_last_name,
                         :match_mode => :extended,
-                        :conditions => add_conditions(params)
+                        :conditions => add_conditions(params, user)
                         )
       return result
     end

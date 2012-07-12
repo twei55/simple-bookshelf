@@ -34,7 +34,7 @@
 		<td><%= book.year %></td>
 		<td><%= book.publisher %></td>
 		<td class="buttons">
-			<% if admin_signed_in? -%>
+			<% if current_user.admin? -%>
 				<%= button_to I18n.t("sb.forms.buttons.edit_book"),
 					edit_book_path(book), 
 					:title => I18n.t("sb.links.titles.edit_book"),

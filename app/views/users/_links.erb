@@ -1,10 +1,6 @@
-<% if current_page?(new_user_session_path) %>
+<%- if controller_name != 'registrations' %>
 	<%= link_to I18n.t("devise.links.sign_up"), new_user_registration_path %><br />
-<% end %>
-
-<% if current_page?(new_admin_session_path) %>
-	<%= link_to I18n.t("devise.links.sign_up"), new_admin_registration_path %><br />
-<% end %>
+<% end -%>
 
 <%- if controller_name != 'sessions' %>
   <%= link_to I18n.t("devise.links.sign_in"), new_session_path(resource_name) %><br />
@@ -15,7 +11,7 @@
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+  <%= link_to I18n.t("devise.confirmations.not_received"), new_confirmation_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>

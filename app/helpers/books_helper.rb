@@ -140,4 +140,17 @@ module BooksHelper
     params[:page] = 1 unless params[:page]
     (i+(Book.per_page*(params[:page].to_i-1))+1).to_s
   end
+
+  #
+  # Add a citation in the following format
+  # author1, author2 (year): title, publisher
+  # 
+  def cite(book)
+    citation = String.new
+    citation << book.authors.map { |a| a.full_name_reversed  }.join(" / ")
+    citation << " (#{book.year}): "
+    citation << book.title.strip
+    citation << ", #{book.publisher.strip}"
+  end
+
 end

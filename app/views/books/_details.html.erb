@@ -1,6 +1,6 @@
 <div class="section">
 	<h5><%= book.title %>
-		<% if admin_signed_in? -%>
+		<% if current_user.admin? -%>
 			&#160;<%= link_to image_tag("icons/page_white_edit.png"),edit_book_path(book), :title => "Buch bearbeiten"%>
 		<% end -%>
 	</h5>
@@ -22,7 +22,14 @@
 <div class="section border">
 	<div class="location">
 		<h5 style="margin-bottom:10px">Aktueller Standort:</h5>
-		<%= book.location.blank? ? "Keine Angabe" : book.location %></div>
+		<%= book.location.blank? ? "Keine Angabe" : book.location %>
+	</div>
+</div>
+<div class="section border">
+	<div class="citation">
+		<h5 style="margin-bottom:10px">Zitation:</h5>
+		<%= cite(book) %>
+	</div>
 </div>
 <% if book.document.file? %>
 <div class="section border">

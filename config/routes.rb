@@ -1,9 +1,5 @@
 SimpleBookshelf::Application.routes.draw do
 
-  devise_for :admins
-
-  devise_for :users
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -44,7 +40,8 @@ SimpleBookshelf::Application.routes.draw do
     :controller => :nested_tags,
     :only => [:index, :create, :update, :destroy]
 
-  match "/admin" => redirect("/admins/sign_in")
+
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
 
   # Sample resource route with options:
   #   resources :products do

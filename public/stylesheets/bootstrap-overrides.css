@@ -10,6 +10,10 @@ body h2 {
 	margin-bottom:10px;
 }
 
+body h5 {
+	font-size: 16px;
+}
+
 div#content {
 	background-color:#FFF;
 	padding:20px 20px 250px;
@@ -186,4 +190,8 @@ div#similar_books ul li a {
 
 form#new_user h4 {
 	margin:10px 0;
+}
+
+textarea#citation {
+	width:600px;
 }

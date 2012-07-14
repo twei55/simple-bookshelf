@@ -49,7 +49,7 @@ class NestedTagsController < ApplicationController
   private
   
   def delete_tags_fragment
-    expire_fragment(:controller => "nested_tags", 
+    expire_fragment(:controller => "books", 
       :action => "new", 
       :action_suffix => 'tag_selection')
   end

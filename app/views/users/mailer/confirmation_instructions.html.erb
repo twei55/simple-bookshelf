@@ -1,5 +1,9 @@
-<p>Welcome <%= @resource.email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p><%= "#{I18n.t('sb.mailers.confirmation_instructions.hello')} #{@resource.email}" %>,</p>
+<p><%= I18n.t('sb.mailers.confirmation_instructions.intro') %></p>
+<% if @resource.admin? -%>
+<p><%= "#{I18n.t('sb.mailers.confirmation_instructions.group_admin')} #{@resource.group.name}" %></p>
+<% else %>
+<p><%= "#{I18n.t('sb.mailers.confirmation_instructions.group_user')} #{@resource.group.name}" %></p>
+<% end -%>
+<p><%= I18n.t('sb.mailers.confirmation_instructions.link') %></p>
+<p><%= link_to I18n.t("sb.mailers.confirmation_instructions.confirm_account"), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>

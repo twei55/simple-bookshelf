@@ -96,7 +96,15 @@ en:
     buttons:
       search: "Search"
     will_paginate:
-      previous_label: Previous
-      next_label: Next
-      page_gap: ...
+      previous_label: "Previous"
+      next_label: "Next"
+      page_gap: "..."
+    mailers:
+      confirmation_instructions:
+        hello: "Hello"
+        intro: "Your account was created successfully."
+        link: "Click the following link to activate your account."
+        group_admin: "You are administrator of the following group:"
+        group_user: "You are member of the following group:"
+        confirm_account: "Confirm my account"
 

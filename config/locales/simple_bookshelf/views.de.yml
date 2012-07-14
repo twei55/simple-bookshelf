@@ -100,7 +100,15 @@ de:
     buttons:
       search: "Suche"
     will_paginate:
-      previous_label: Zurück
-      next_label: Weiter
-      page_gap: ...
+      previous_label: "Zurück"
+      next_label: "Weiter"
+      page_gap: "..."
+    mailers:
+      confirmation_instructions:
+        hello: "Hallo"
+        intro: "Du hast Dich erfolgreich angemeldet und Dein Benutzerkonto wurde angelegt."
+        link: "Klicke bitte auf den folgenden Link, um Dein Benutzerkonto zu aktivieren."
+        group_admin: "Du bist Administrator in folgender Gruppe:"
+        group_user: "Du bist Mitglied in folgender Gruppe:"
+        confirm_account: "Benutzerkonto aktivieren"
 

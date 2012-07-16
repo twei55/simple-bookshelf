@@ -2,7 +2,7 @@
 .bundle
 app/views/layouts/custom/*
 config/*.sphinx.conf
-config/production.rb
+config/environments/production.rb
 config/database.yml
 config/deploy.rb
 db/sphinx/*

@@ -76,7 +76,7 @@
 		<div style="float:left;margin-right:10px"><%= image_tag("icons/file_pdf.png") %></div>
 		<div>
 			<%= book.document.original_filename %>&#160;
-			<% if admin_signed_in? -%>
+			<% if current_user.admin? -%>
 				<%= link_to image_tag("icons/bin_empty.png"), destroy_document_book_path(book), 
 					{:title => "Anhang löschen", 
 					:confirm => "Willst Du diesen Anhang wirklich löschen?" } 

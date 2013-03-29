@@ -6,16 +6,16 @@ gem "better_partials", "~> 1.0.1"
 gem "capistrano"
 gem "capistrano-rbenv"
 gem "devise"
-gem "mysql2", "~> 0.3"
+gem "mysql2", "~> 0.3.11"
 gem "paperclip", "~> 3.0"
-gem "rails", "3.2.2"
+gem "rails", "~> 3.2.13"
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 gem "ruby-debug19", :require => "ruby-debug"
 gem 'rvm-capistrano'
 gem "simple_form"
 
 gem "thin", "~> 1.3.1"
-gem "thinking-sphinx", "2.0.10"
+gem "thinking-sphinx", "~> 3.0.2"
 gem "will_paginate", "~> 3.0"
 
 group :assets do

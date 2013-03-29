@@ -15,7 +15,7 @@ gem 'rvm-capistrano'
 gem "simple_form"
 
 gem "thin", "~> 1.3.1"
-gem "thinking-sphinx", "~> 3.0.2"
+gem "thinking-sphinx", "~> 2.0.14"
 gem "will_paginate", "~> 3.0"
 
 group :assets do

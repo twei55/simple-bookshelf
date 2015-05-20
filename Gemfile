@@ -8,7 +8,7 @@ gem "capistrano-rbenv"
 gem "devise"
 gem "mysql2", "~> 0.3.11"
 gem "newrelic_rpm"
-gem "paperclip", "~> 3.0"
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "rails", "~> 3.2.13"
 gem 'rvm-capistrano'
 gem "simple_form"

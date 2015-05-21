@@ -5,16 +5,16 @@ class Book < ActiveRecord::Base
 	################################
   ### ActiveRecord Associations ##
   ################################
-  
+
   has_many :book_authors
   has_many :authors, :through => :book_authors
 
   has_many :entries
   has_many :groups, :through => :entries
 
-  accepts_nested_attributes_for :authors, 
+  accepts_nested_attributes_for :authors,
     :reject_if => :has_no_author_or_publisher?, :allow_destroy => true
-  
+
   has_and_belongs_to_many :nested_tags, :join_table => "books_nested_tags"
   has_and_belongs_to_many :formats
 
@@ -29,9 +29,9 @@ class Book < ActiveRecord::Base
   validates_presence_of :authors, :message => I18n.t("sb.book.validations.author_missing")
 
   validates_associated :authors, :message => I18n.t("sb.book.validations.author_missing")
-  
-  validates_attachment_content_type :document, :content_type => ['application/pdf'], 
-  :allow_blank => true, :message => I18n.t("sb.book.validations.attachment_content_type")
+
+  # validates_attachment_content_type :document, :content_type => ['application/pdf'],
+  # :allow_blank => true, :message => I18n.t("sb.book.validations.attachment_content_type")
 
   ###############
   # Scopes
@@ -53,7 +53,7 @@ class Book < ActiveRecord::Base
   # Paperclip
   ##############
 
-  has_attached_file :document, 
+  has_attached_file :document,
     :url => "/system/books/documents/:id/original/:basename.:extension",
     :path => ":rails_root/public/system/books/documents/:id/original/:basename.:extension"
 
@@ -79,7 +79,7 @@ class Book < ActiveRecord::Base
     set_property :delta => true
   end
 
-  # 
+  #
   # Copy publisher name to author last name
   # and check if attribute is blank
   def has_no_author_or_publisher?(author)
@@ -87,7 +87,7 @@ class Book < ActiveRecord::Base
     author["last_name"].blank?
   end
 
-  class << self 
+  class << self
 
     def add_conditions(params, user)
     	conditions = {}
